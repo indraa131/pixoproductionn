@@ -25,7 +25,23 @@ body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;over
 #particles{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
 .particle{position:absolute;width:2px;height:2px;background:var(--gold1);border-radius:50%;animation:floatP linear infinite;opacity:0}
 @keyframes floatP{0%{transform:translateY(100vh) translateX(0) scale(0);opacity:0}10%{opacity:.6}90%{opacity:.2}100%{transform:translateY(-10vh) translateX(var(--dx)) scale(1.5);opacity:0}}
- 
+ html,
+body{
+  overflow-x:hidden;
+}
+  html,
+body{
+  margin: 0;
+  padding: 0;
+  background: #050508;
+}html,
+body{
+  overflow-x: hidden;
+}
+  html,
+body{
+  overscroll-behavior: none;
+}
 /* ── NAV ── */
 nav{
   position:fixed;top:20px;left:50%;transform:translateX(-50%);
