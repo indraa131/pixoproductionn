@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services — Pixo Production</title>
+<link rel="icon" type="image/png" href="logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0a0a;--bg2:#111;--bg3:#181818;--bg4:#222;--accent:#e8c84a;--accent2:#c8a830;--text:#f0f0f0;--muted:#888;--border:#2a2a2a;--red:#e84a4a}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;overflow-x:hidden}
+ 
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(10,10,10,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:3px;color:var(--accent);text-decoration:none}
+.logo span{color:var(--text)}
+.nav-links{display:flex;gap:1.5rem;align-items:center;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:0.85rem;letter-spacing:1px;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--accent)}
+.cart-btn{background:var(--accent);color:#000;border:none;padding:8px 16px;font-family:'Outfit',sans-serif;font-weight:600;font-size:0.8rem;letter-spacing:1px;cursor:pointer;display:flex;align-items:center;gap:6px;text-transform:uppercase;transition:background .2s}
+.cart-btn:hover{background:var(--accent2)}
+.cart-count{background:#000;color:var(--accent);border-radius:50%;width:18px;height:18px;display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{width:22px;height:2px;background:var(--text);transition:.3s}
+@media(max-width:768px){
+  .nav-links{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg2);flex-direction:column;padding:1rem 2rem;gap:1rem;border-bottom:1px solid var(--border)}
+  .nav-links.open{display:flex}
+  .hamburger{display:flex}
+}
+ 
+/* PAGE HERO */
+.page-hero{padding:130px 2rem 60px;position:relative;overflow:hidden;background:var(--bg2);border-bottom:1px solid var(--border)}
+.page-hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(232,200,74,0.07) 0%,transparent 60%)}
+.page-hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:60px 60px;opacity:.25}
+.page-hero-inner{position:relative;z-index:2;max-width:1100px;margin:0 auto;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:2rem}
+.page-hero-left .section-label{color:var(--accent);font-size:0.7rem;letter-spacing:4px;text-transform:uppercase;margin-bottom:.75rem}
+.page-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.5rem,9vw,7rem);line-height:.9;letter-spacing:3px}
+.page-title span{color:var(--accent)}
+.page-hero-right{color:var(--muted);font-size:.9rem;line-height:1.8;max-width:380px}
+.page-hero-right strong{color:var(--text);display:block;margin-bottom:.5rem;font-size:1rem}
+.breadcrumb{position:absolute;bottom:1.25rem;left:2rem;display:flex;align-items:center;gap:.5rem;font-size:.72rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+.breadcrumb a{color:var(--muted);text-decoration:none;transition:color .2s}
+.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb span{color:var(--accent)}
+ 
+/* MAIN CONTENT */
+main{max-width:1100px;margin:0 auto;padding:4rem 2rem 6rem}
+ 
+/* FILTER BAR */
+.filter-bar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
+.filter-bar-left{display:flex;gap:.5rem;flex-wrap:wrap}
+@media(max-width:600px){
+  .filter-bar{flex-direction:column;align-items:flex-start;}
+  .filter-bar-right{width:100%;justify-content:space-between;}
+}
+.filter-tab{background:transparent;border:1px solid var(--border);color:var(--muted);padding:8px 18px;font-family:'Outfit',sans-serif;font-size:0.75rem;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:.2s}
+.filter-tab.active,.filter-tab:hover{border-color:var(--accent);color:var(--accent)}
+.filter-bar-right{display:flex;align-items:center;gap:1rem}
+.sort-select{background:var(--bg3);border:1px solid var(--border);color:var(--muted);padding:8px 14px;font-family:'Outfit',sans-serif;font-size:0.75rem;letter-spacing:1px;outline:none;cursor:pointer;text-transform:uppercase;appearance:none;padding-right:28px;position:relative}
+.sort-wrap{position:relative}
+.sort-wrap::after{content:'▾';position:absolute;right:10px;top:50%;transform:translateY(-50%);color:var(--accent);font-size:.7rem;pointer-events:none}
+.results-count{color:var(--muted);font-size:.78rem;letter-spacing:1px;text-transform:uppercase}
+.results-count strong{color:var(--accent);font-family:'Bebas Neue',sans-serif;font-size:1rem}
+ 
+/* CATEGORY SECTIONS */
+.category-section{margin-bottom:4rem}
+.cat-header{display:flex;align-items:center;gap:1.5rem;margin-bottom:1.5rem}
+.cat-label{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:2px}
+.cat-count{color:var(--muted);font-size:.75rem;letter-spacing:2px;text-transform:uppercase;background:var(--bg3);border:1px solid var(--border);padding:3px 10px}
+.cat-line{flex:1;height:1px;background:var(--border)}
+ 
+/* SERVICE CARDS */
+.services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1px;}
+@media(max-width:560px){
+  .services-grid{grid-template-columns:1fr;}  /* full width on phones */
+}
+.service-card{background:var(--bg2);border:1px solid var(--border);padding:1.75rem;position:relative;transition:border-color .3s,transform .2s;display:flex;flex-direction:column}
+.service-card:hover{border-color:var(--accent);transform:translateY(-3px)}
+.service-card.popular{border-color:rgba(232,200,74,.3)}
+.popular-badge{position:absolute;top:0;right:0;background:var(--accent);color:#000;font-size:0.6rem;letter-spacing:2px;padding:5px 10px;font-weight:700;text-transform:uppercase}
+.service-cat-tag{display:inline-block;color:var(--accent);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;margin-bottom:.75rem;padding-bottom:.75rem;border-bottom:1px solid var(--border);width:100%}
+.service-name{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:1px;margin-bottom:1rem;line-height:1}
+.service-features{list-style:none;margin-bottom:1.5rem;flex:1}
+.service-features li{color:var(--muted);font-size:0.82rem;padding:5px 0;border-bottom:1px solid rgba(42,42,42,.6);display:flex;align-items:center;gap:.6rem}
+.service-features li::before{content:'—';color:var(--accent);font-size:.65rem;flex-shrink:0}
+.service-footer{margin-top:auto}
+.service-price{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--accent);letter-spacing:1px;line-height:1;margin-bottom:.25rem}
+.service-price span{color:var(--muted);font-size:.85rem;font-family:'Outfit',sans-serif;letter-spacing:0}
+.price-note{color:var(--muted);font-size:.7rem;letter-spacing:1px;margin-bottom:1rem}
+.add-cart-btn{width:100%;background:transparent;border:1px solid var(--accent);color:var(--accent);padding:11px;font-family:'Outfit',sans-serif;font-size:0.8rem;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:.2s;display:flex;align-items:center;justify-content:center;gap:8px}
+.add-cart-btn:hover,.add-cart-btn.added{background:var(--accent);color:#000}
+ 
+/* COMPARE TABLE */
+.compare-section{margin-bottom:4rem}
+.compare-toggle{background:transparent;border:1px solid var(--border);color:var(--muted);padding:10px 20px;font-family:'Outfit',sans-serif;font-size:.78rem;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:.2s;margin-bottom:1.5rem;display:flex;align-items:center;gap:8px}
+.compare-toggle:hover{border-color:var(--accent);color:var(--accent)}
+.compare-table-wrap{overflow-x:auto}
+.compare-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+/* -webkit-overflow-scrolling:touch enables smooth scroll on iOS */
+.compare-table{width:100%;border-collapse:collapse;font-size:.82rem}
+.compare-table th{background:var(--bg3);border:1px solid var(--border);padding:10px 14px;text-align:left;font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:1px;color:var(--accent)}
+.compare-table th:first-child{color:var(--muted);font-size:.75rem}
+.compare-table td{border:1px solid var(--border);padding:9px 14px;color:var(--muted)}
+.compare-table td:first-child{color:var(--text);font-size:.78rem;letter-spacing:1px}
+.compare-table tr:nth-child(even) td{background:rgba(24,24,24,.5)}
+.check{color:var(--accent);font-size:.9rem}
+.cross{color:var(--red);font-size:.8rem}
+ 
+/* FAQ */
+.faq-section{margin-bottom:4rem}
+.faq-list{display:flex;flex-direction:column;gap:.5rem}
+.faq-item{border:1px solid var(--border);overflow:hidden}
+.faq-q{width:100%;background:var(--bg2);border:none;color:var(--text);padding:.875rem 1rem;font-family:'Outfit',sans-serif;font-size:.88rem;text-align:left;min-height:44px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;transition:background .2s}
+.faq-q:hover{background:var(--bg3)}
+.faq-q.open{background:var(--bg3)}
+.faq-q.open .faq-arrow{color:var(--accent);transform:rotate(45deg)}
+.faq-arrow{color:var(--muted);font-size:1.2rem;transition:transform .3s,color .2s;flex-shrink:0}
+.faq-a{display:none;padding:1rem 1.25rem;background:var(--bg3);color:var(--muted);font-size:.84rem;line-height:1.7;border-top:1px solid var(--border)}
+.faq-a.open{display:block}
+ 
+/* CART DRAWER */
+#cart-drawer{position:fixed;top:0;right:-420px;width:400px;height:100vh;background:var(--bg2);border-left:1px solid var(--border);z-index:2000;transition:right .3s;overflow-y:auto;padding:2rem}
+#cart-drawer.open{right:0}
+.cart-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;border-bottom:1px solid var(--border);padding-bottom:1rem}
+.cart-title{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:2px}
+.close-cart{background:transparent;border:none;color:var(--text);font-size:1.5rem;cursor:pointer;padding:4px}
+.cart-empty{color:var(--muted);text-align:center;padding:3rem 0;font-size:.9rem}
+.cart-item{background:var(--bg3);border:1px solid var(--border);padding:1rem;margin-bottom:.75rem}
+.cart-item-name{font-weight:500;font-size:.9rem;margin-bottom:.25rem}
+.cart-item-price{color:var(--accent);font-family:'Bebas Neue',sans-serif;font-size:1.2rem}
+.remove-item{background:transparent;border:none;color:var(--red);font-size:.75rem;cursor:pointer;margin-top:.5rem;letter-spacing:1px;text-transform:uppercase;padding:0}
+.cart-total{border-top:1px solid var(--border);padding-top:1rem;margin-top:1rem;display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem}
+.cart-total-label{color:var(--muted);font-size:.85rem;text-transform:uppercase;letter-spacing:2px}
+.cart-total-amount{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--accent)}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:1999;display:none}
+.overlay.show{display:block}
+.btn-primary{background:var(--accent);color:#000;border:none;padding:14px 32px;font-family:'Outfit',sans-serif;font-weight:700;font-size:0.85rem;letter-spacing:2px;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-block;transition:background .2s;width:100%}
+.btn-primary:hover{background:var(--accent2)}
+.btn-outline{background:transparent;color:var(--text);border:1px solid var(--border);padding:14px 32px;font-family:'Outfit',sans-serif;font-weight:500;font-size:0.85rem;letter-spacing:2px;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-block;transition:border-color .2s;width:100%;margin-top:.75rem}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+ /* ── SERVICES ── */
+#services{background:var(--bg2);overflow:hidden}
+#services::before{content:'';position:absolute;inset:0;background:
+  radial-gradient(ellipse 40% 60% at 0% 50%,rgba(212,146,10,0.04),transparent),
+  radial-gradient(ellipse 40% 60% at 100% 50%,rgba(108,59,255,0.04),transparent)}
+.services-header{max-width:1100px;margin:0 auto 2.5rem;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1.5rem}
+.filter-tabs{display:flex;gap:.5rem;flex-wrap:wrap}
+.filter-tab{background:transparent;border:1px solid rgba(255,255,255,0.08);color:var(--muted);padding:8px 18px;font-family:'Outfit',sans-serif;font-size:0.72rem;letter-spacing:1.5px;text-transform:uppercase;cursor:none;transition:all .3s;border-radius:2px}
+.filter-tab.active,.filter-tab:hover{border-color:var(--gold2);color:var(--gold1);background:rgba(212,146,10,0.05)}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1px;max-width:1100px;margin:0 auto;background:rgba(255,255,255,0.04)}
+.service-card{background:var(--bg3);padding:1.75rem;position:relative;overflow:hidden;transition:all .4s cubic-bezier(.34,1.56,.64,1);transform-style:preserve-3d}
+.service-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(212,146,10,0.06),transparent 60%);opacity:0;transition:opacity .3s}
+.service-card:hover{transform:translateY(-4px);background:var(--bg4)}
+.service-card:hover::before{opacity:1}
+.service-card.popular{border-top:2px solid var(--gold1)}
+.popular-badge{position:absolute;top:0;right:0;background:var(--accent);color:#000;font-size:0.58rem;letter-spacing:2px;padding:5px 10px;font-weight:700;text-transform:uppercase}
+.service-cat{color:var(--gold2);font-size:0.63rem;letter-spacing:3.5px;text-transform:uppercase;margin-bottom:.6rem}
+.service-name{font-family:'Bebas Neue',sans-serif;font-size:1.55rem;letter-spacing:1px;margin-bottom:.9rem;color:#fff}
+.service-features{list-style:none;margin-bottom:1.5rem}
+.service-features li{color:var(--muted);font-size:0.8rem;padding:5px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.6rem;transition:color .2s}
+.service-card:hover .service-features li{color:rgba(255,255,255,0.8)}
+.service-features li::before{content:'';width:4px;height:4px;background:var(--gold2);border-radius:50%;flex-shrink:0}
+.service-price{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;background:var(--accent);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:1px;filter:drop-shadow(0 0 10px rgba(212,146,10,0.2))}
+.service-price span{color:var(--muted);font-size:.85rem;font-family:'Outfit',sans-serif;letter-spacing:0;-webkit-text-fill-color:var(--muted)}
+.add-cart-btn{width:100%;margin-top:1.2rem;background:transparent;border:1px solid rgba(212,146,10,0.3);color:var(--gold2);padding:11px;font-family:'Outfit',sans-serif;font-size:0.77rem;letter-spacing:2px;text-transform:uppercase;cursor:none;transition:all .3s;position:relative;overflow:hidden;border-radius:2px}
+.add-cart-btn::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:var(--accent);transition:left .3s;z-index:-1}
+.add-cart-btn:hover::before{left:0}
+.add-cart-btn:hover{color:#000;border-color:transparent}
+.add-cart-btn.added{background:var(--accent);color:#000;border-color:transparent}
+/* TOAST */
+#toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);background:var(--accent);color:#000;padding:10px 24px;font-size:.85rem;font-weight:600;letter-spacing:1px;z-index:3000;opacity:0;transition:opacity .3s;pointer-events:none;text-transform:uppercase}
+#toast.show{opacity:1}
+ 
+/* SECTION HELPERS */
+.section-label{color:var(--accent);font-size:0.7rem;letter-spacing:4px;text-transform:uppercase;margin-bottom:.75rem}
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5vw,3.5rem);letter-spacing:2px;margin-bottom:1rem}
+.divider{width:60px;height:2px;background:var(--accent);margin:1rem 0 1.5rem}
+ 
+/* ANIMATIONS */
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .5s,transform .5s}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+ 
+/* FOOTER */
+footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem;text-align:center;color:var(--muted);font-size:.8rem;letter-spacing:1px}
+footer a{color:var(--accent);text-decoration:none}
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px){
+
+    /* HERO */
+    .hero{
+        min-height: 100vh;
+        padding: 120px 20px 60px;
+    }
+
+    /* TITLE */
+    .hero h1{
+        font-size: 68px;
+        line-height: 0.9;
+        text-align: center;
+    }
+
+    /* FLOATING IMAGES */
+    .float-img{
+        width: 110px;
+        height: 150px;
+        border-radius: 18px;
+    }
+
+    /* LEFT IMAGE */
+    .img1{
+        top: 30%;
+        left: -5%;
+    }
+
+    /* LEFT BOTTOM */
+    .img2{
+        top: 62%;
+        left: 2%;
+    }
+
+    /* RIGHT IMAGE */
+    .img3{
+        top: 28%;
+        right: -5%;
+    }
+
+    /* RIGHT BOTTOM */
+    .img4{
+        top: 60%;
+        right: 2%;
+    }
+
+    /* BUTTON */
+    .hero-btn{
+        padding: 14px 28px;
+        font-size: 14px;
+    }
+
+    /* TEXT */
+    .hero p{
+        font-size: 13px;
+        padding: 0 10px;
+    }
+}
+/* MOBILE FIX */
+@media screen and (max-width:768px){
+
+    body{
+        overflow-x:hidden;
+    }
+
+    .hero{
+        min-height:100vh;
+        overflow:hidden;
+        padding:120px 20px 80px;
+    }
+
+    .hero-content{
+        position:relative;
+        z-index:10;
+        text-align:center;
+    }
+
+    .hero-content h1{
+        font-size:58px !important;
+        line-height:0.9;
+    }
+
+    .float-img{
+        width:90px !important;
+        height:120px !important;
+        border-radius:18px;
+    }
+
+    /* LEFT */
+    .img1{
+        left:-15px !important;
+        top:32% !important;
+    }
+
+    .img2{
+        left:0px !important;
+        top:60% !important;
+    }
+
+    /* RIGHT */
+    .img3{
+        right:-15px !important;
+        top:30% !important;
+    }
+
+    .img4{
+        right:0px !important;
+        top:58% !important;
+    }
+}
+/* Default Cursor Hide */
+body { cursor: none; }
+@media(max-width:768px){ body { cursor: auto; } }
+
+/* Custom Cursor */
+.custom-cursor {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  border: 2px solid #fdd803;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 99999;
+
+  background: rgba(194, 167, 19, 0.15);
+
+  box-shadow:
+    0 0 10px #9e8913,
+    0 0 20px #8e7a0d,
+    0 0 35px rgba(144, 124, 11, 0.8);
+
+  transition:
+    width 0.2s ease,
+    height 0.2s ease,
+    background 0.2s ease;
+}
+
+/* Click Effect */
+.custom-cursor.click {
+  width: 35px;
+  height: 35px;
+  background: rgba(255, 215, 0, 0.3);
+}
+
+/* Hover Effect */
+.custom-cursor.hover {
+  width: 10px;
+  height: 10px;
+  border-color: #fff;
+  box-shadow:
+    0 0 15px #fff,
+    0 0 30px #FFD700,
+    0 0 50px #FFD700;
+}
+</style>
+</head>
+<body>
+ <div class="custom-cursor"></div>
+<div id="overlay" class="overlay" onclick="closeCart()"></div>
+<div id="toast">Added to cart!</div>
+ 
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo">PIXO<span>PRODUCTION</span></a>
+  <div class="hamburger" onclick="toggleMenu()" id="hamburger"><span></span><span></span><span></span></div>
+  <ul class="nav-links" id="nav-links">
+    
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html" class="active">Services</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><button class="cart-btn" onclick="openCart()">🎬 Cart <span class="cart-count" id="cart-count">0</span></button></li>
+  </ul>
+</nav>
+ 
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-inner">
+    <div class="page-hero-left">
+      <div class="section-label">What We Offer</div>
+      <h1 class="page-title">OUR<br><span>SERVICES</span></h1>
+    </div>
+    <div class="page-hero-right">
+      <strong>Cinematic production packages for every event</strong>
+      Browse our full range of videography, photography, aerial, broadcasting, and post-production services. Add to cart and proceed to booking.
+    </div>
+  </div>
+  <div class="breadcrumb">
+    <a href="index.html">Home</a>
+    <span><</span>
+    <span>Services</span>
+  </div>
+</div>
+ <section id="services">
+  <div class="services-header fade-up">
+    <div>
+      <div class="section-label">What We Offer</div>
+      <h2 class="section-title">OUR <span class="accent">SERVICES</span></h2>
+      <p style="color:var(--muted);font-size:.82rem;margin-top:.5rem">Add services to cart and proceed to booking</p>
+    </div>
+    
+  </div>
+  <div class="services-grid" id="services-grid"></div>
+</section>
+<!-- MAIN -->
+<main>
+ 
+  <!-- FILTER BAR -->
+  <div class="filter-bar fade-up">
+    <div class="filter-bar-left" id="filter-tabs">
+      <button class="filter-tab active" onclick="filterServices('all',this)">All</button>
+      <button class="filter-tab" onclick="filterServices('Videography',this)">Videography</button>
+      <button class="filter-tab" onclick="filterServices('Photography',this)">Photography</button>
+      <button class="filter-tab" onclick="filterServices('Aerial',this)">Aerial</button>
+      <button class="filter-tab" onclick="filterServices('Jimmy Jip',this)">Jimmy Jip</button>
+      <button class="filter-tab" onclick="filterServices('Broadcasting',this)">Broadcasting</button>
+      <button class="filter-tab" onclick="filterServices('Editing',this)">Editing</button>
+    </div>
+    <div class="filter-bar-right">
+      <span class="results-count"><strong id="result-num">12</strong> Services</span>
+      <div class="sort-wrap">
+        <select class="sort-select" id="sort-select" onchange="sortServices(this.value)">
+          <option value="default">Sort: Default</option>
+          <option value="price-asc">Price: Low → High</option>
+          <option value="price-desc">Price: High → Low</option>
+          <option value="popular">Popular First</option>
+        </select>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- SERVICES GRID -->
+  <div id="services-container"></div>
+ 
+  <!-- COMPARE TABLE -->
+  <div class="compare-section fade-up">
+    <div class="section-label">Quick Compare</div>
+    <h2 class="section-title">VIDEO PACKAGES</h2>
+    <div class="divider"></div>
+    <button class="compare-toggle" onclick="toggleTable()">
+      <span id="toggle-icon">▶</span> Show Comparison Table
+    </button>
+    <div id="compare-table-wrap" style="display:none" class="compare-table-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Basic Video</th>
+            <th>Cinematic Event</th>
+            <th>Concert</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Camera Setup</td><td>Single</td><td>Multi-Camera</td><td>3+ Cameras</td></tr>
+          <tr><td>Coverage Duration</td><td>2–3 Hours</td><td>Full Day</td><td>Full Day</td></tr>
+          <tr><td>4K Quality</td><td class="cross">✕</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Drone Integration</td><td class="cross">✕</td><td class="cross">✕</td><td class="check">✓ FPV</td></tr>
+          <tr><td>Spot Edit</td><td class="cross">✕</td><td class="cross">✕</td><td class="check">✓ Every 20 Min</td></tr>
+          <tr><td>1-Hour Reel</td><td class="cross">✕</td><td class="cross">✕</td><td class="check">✓</td></tr>
+          <tr><td>Color Grading</td><td class="cross">✕</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Social Media Cuts</td><td class="cross">✕</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Starting Price</td><td>₹15,000</td><td>₹35,000</td><td>₹55,000</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+ 
+  <!-- FAQ -->
+  <div class="faq-section fade-up">
+    <div class="section-label">Common Questions</div>
+    <h2 class="section-title">FAQ</h2>
+    <div class="divider"></div>
+    <div class="faq-list" id="faq-list"></div>
+  </div>
+ 
+</main>
+ 
+<!-- CART DRAWER -->
+<div id="cart-drawer">
+  <div class="cart-header"><div class="cart-title">YOUR CART</div><button class="close-cart" onclick="closeCart()">✕</button></div>
+  <div id="cart-items"></div>
+  <div id="cart-footer" style="display:none">
+    <div class="cart-total"><div class="cart-total-label">Total</div><div class="cart-total-amount" id="cart-total-display">₹0</div></div>
+    <button class="btn-primary" onclick="proceedBooking()">Proceed to Booking →</button>
+    <button class="btn-outline" onclick="clearCart()">Clear Cart</button>
+  </div>
+</div>
+ 
+<!-- FOOTER -->
+<footer>
+  <div style="font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:4px;color:var(--accent);margin-bottom:.5rem">PIXO PRODUCTION</div>
+  <p>© 2025 Pixo Production . All rights reserved.</p>
+  <p style="margin-top:.25rem"><a href="https://www.instagram.com/pixoproductionn/" target="_blank">@pixoproductionn</a></p>
+</footer>
+ 
+<script>
+const SERVICES_DATA=[
+  {
+    id: 1,
+    cat: 'Videography',
+    name: 'Sony A7M4 Videography',
+    features: [
+      'Sony A7M4 with Lens',
+      'Gimbal / Tripod Setup',
+      'Professional Labor',
+      'HD Delivery'
+    ],
+    price: 6000,
+    popular: false
+  },
+
+  {
+    id: 2,
+    cat: 'Videography',
+    name: 'FX3 Videography',
+    features: [
+      'FX3 Cinema Camera',
+      'Professional Videography Package',
+      '4K Recording',
+      'Color Graded Output'
+    ],
+    price: 8000,
+    popular: true
+  },
+
+  {
+    id: 3,
+    cat: 'Videography',
+    name: 'FX6 Videography',
+    features: [
+      'FX6 Cinema Camera',
+      'Professional Cinema Package',
+      '4K Video Output',
+      'Color Graded Delivery'
+    ],
+    price: 11000,
+    popular: false
+  },
+
+  {
+    id: 4,
+    cat: 'Videography',
+    name: 'Mobile Reel Creator',
+    features: [
+      'iPhone Reel Creation',
+      'Spot Edit Included',
+      'Social Media Ready',
+      'Quick Delivery'
+    ],
+    price: 5000,
+    popular: false
+  },
+
+  {
+    id: 5,
+    cat: 'Photography',
+    name: 'Sony A7M4 Wireless',
+    features: [
+      'Sony A7M4 Setup',
+      'Wireless Transmitter',
+      'Gimbal Support',
+      'Professional Coverage'
+    ],
+    price: 7000,
+    popular: false
+  },
+
+  {
+    id: 6,
+    cat: 'Photography',
+    name: 'Traditional Photography',
+    features: [
+      'Professional Photography',
+      'Sony A7M4 / Pro Models',
+      'Event Coverage',
+      'Edited Photos'
+    ],
+    price: 6000,
+    popular: false
+  },
+
+  {
+    id: 7,
+    cat: 'Photography',
+    name: 'Candid Photography',
+    features: [
+      'Authentic Moments Capture',
+      'Creative Frames',
+      'Professional Editing',
+      'High Resolution Delivery'
+    ],
+    price: 6000,
+    popular: true
+  },
+
+  {
+    id: 8,
+    cat: 'Aerial',
+    name: 'DJI Mini 3/4 Pro Drone',
+    features: [
+      'Aerial Coverage',
+      '4K Drone Shots',
+      'Smooth Cinematics',
+      'Professional Pilot'
+    ],
+    price: 3500,
+    popular: false
+  },
+
+  {
+    id: 9,
+    cat: 'Aerial',
+    name: 'DJI Air 3 Drone',
+    features: [
+      'Advanced Aerial Coverage',
+      '4K HDR Recording',
+      'Dynamic Drone Shots',
+      'Stabilized Cinematics'
+    ],
+    price: 6000,
+    popular: false
+  },
+
+  {
+    id: 10,
+    cat: 'Aerial',
+    name: 'DJI Mavick 4 Pro Drone',
+    features: [
+      'Live Feed Option',
+      'Professional Drone Coverage',
+      'Cinematic Aerial Shots',
+      'High Quality Output'
+    ],
+    price: 12500,
+    popular: true
+  },
+
+  {
+    id: 11,
+    cat: 'Aerial',
+    name: 'FPV Drone',
+    features: [
+      'Immersive FPV Shots',
+      'Dynamic Motion Coverage',
+      'Cinematic Flythroughs',
+      'Professional FPV Pilot'
+    ],
+    price: 18000,
+    popular: false
+  },
+
+  {
+    id: 12,
+    cat: 'Jimmy Jip',
+    name: 'Jimmy JIP Unit',
+    features: [
+      '32-bit Jimmy JIP Unit',
+      'Professional Crane Shots',
+      'Smooth Motion Capture',
+      'Camera Included'
+    ],
+    price: 25000,
+    popular: false
+  },
+
+  {
+    id: 13,
+    cat: 'Broadcasting',
+    name: 'Switcher & Mixer with Online Editor',
+    features: [
+      'Broadcast Switcher Setup',
+      'Online Editing Support',
+      'Complete Streaming Setup',
+      'Professional Workflow'
+    ],
+    price: 15000,
+    popular: false
+  },
+
+  {
+    id: 14,
+    cat: 'Broadcasting',
+    name: 'Live Streaming',
+    features: [
+      'YouTube Streaming',
+      'GMeet / Teams Support',
+      'Multi Platform Streaming',
+      'HD Quality Output'
+    ],
+    price: 5000,
+    popular: true
+  },
+
+  {
+    id: 15,
+    cat: 'Broadcasting',
+    name: 'Show Director Monitor',
+    features: [
+      '43-inch Monitor',
+      'Stand & Cabling Included',
+      'Director Preview Output',
+      'Professional Setup'
+    ],
+    price: 5000,
+    popular: false
+  },
+
+  {
+    id: 16,
+    cat: 'Editing',
+    name: 'Highlighted Reels',
+    features: [
+      'Highlight Reel Editing',
+      'Fast Delivery',
+      'Social Media Format',
+      'Music Sync'
+    ],
+    price: 1500,
+    popular: false
+  },
+
+  {
+    id: 17,
+    cat: 'Editing',
+    name: 'Spot Edit with Templates',
+    features: [
+      'Spot Edit Service',
+      'Social Media Templates',
+      'Quick Turnaround',
+      'Professional Effects'
+    ],
+    price: 7500,
+    popular: false
+  },
+
+  {
+    id: 18,
+    cat: 'Editing',
+    name: 'Aftermovie Edit',
+    features: [
+      'Professional Aftermovie',
+      'Music & Effects',
+      'Cinematic Color Grade',
+      'Premium Editing'
+    ],
+    price: 5000,
+    popular: true
+  }
+];
+ 
+const FAQS=[
+  {q:'How quickly can you deliver the highlight reel after the event?',a:'For concert and large-scale events, we deliver a 1-hour highlight reel within 1 hour of the show\'s completion. Full edited aftermovies are typically delivered within 3–5 business days depending on the package.'},
+  {q:'Do you travel outside Trichy for events?',a:'Yes! We cover events across Tamil Nadu and beyond. Travel and accommodation costs for outstation events will be discussed during the booking process.'},
+  {q:'Can I combine multiple service packages?',a:'Absolutely. Many clients bundle Videography + Photography + Aerial packages for full coverage. Add multiple services to cart and we\'ll put together a customised quote.'},
+  {q:'What equipment do you use?',a:'We shoot with cinema-grade cameras in 4K, licensed drones, FPV drones, Jimmy Jib arms, professional audio gear, and studio lighting. Equipment specifics depend on the selected package.'},
+  {q:'Is a booking deposit required?',a:'Yes, a 25–30% advance is required to confirm your booking date. Final payment is due on the day of the event or upon delivery, depending on the agreement.'},
+  {q:'Can I request custom packages not listed here?',a:'Definitely. If you have specific requirements or a unique event type, reach out via the enquiry form or call us directly. We build custom solutions for every client.'}
+];
+ 
+let cart=[];
+let currentFilter='all';
+let currentSort='default';
+ 
+function getFiltered(){
+  let data=currentFilter==='all'?[...SERVICES_DATA]:SERVICES_DATA.filter(s=>s.cat===currentFilter);
+  if(currentSort==='price-asc') data.sort((a,b)=>a.price-b.price);
+  else if(currentSort==='price-desc') data.sort((a,b)=>b.price-a.price);
+  else if(currentSort==='popular') data.sort((a,b)=>b.popular-a.popular);
+  return data;
+}
+ 
+function renderServices(filter){
+  const container=document.getElementById('services-container');
+  const data=getFiltered();
+  document.getElementById('result-num').textContent=data.length;
+ 
+  if(currentFilter==='all'){
+    // Group by category
+    const cats=[...new Set(SERVICES_DATA.map(s=>s.cat))];
+    let html='';
+    cats.forEach(cat=>{
+      const items=data.filter(s=>s.cat===cat);
+      if(items.length===0) return;
+      html+=`<div class="category-section fade-up">
+        <div class="cat-header">
+          <div class="cat-label">${cat}</div>
+          <div class="cat-count">${items.length} Package${items.length>1?'s':''}</div>
+          <div class="cat-line"></div>
+        </div>
+        <div class="services-grid">${items.map(s=>serviceCardHTML(s)).join('')}</div>
+      </div>`;
+    });
+    container.innerHTML=html;
+  } else {
+    container.innerHTML=`<div class="services-grid fade-up">${data.map(s=>serviceCardHTML(s)).join('')}</div>`;
+  }
+  observeFadeUps();
+}
+ 
+function serviceCardHTML(s){
+  const inCart=cart.find(c=>c.id===s.id);
+  return `<div class="service-card ${s.popular?'popular':''} fade-up">
+    ${s.popular?'<div class="popular-badge">Popular</div>':''}
+    <div class="service-cat-tag">${s.cat}</div>
+    <div class="service-name">${s.name}</div>
+    <ul class="service-features">${s.features.map(f=>`<li>${f}</li>`).join('')}</ul>
+    <div class="service-footer">
+      <div class="service-price">₹${s.price.toLocaleString('en-IN')}<span> onwards</span></div>
+      <div class="price-note">Final pricing based on event details</div>
+      <button class="add-cart-btn ${inCart?'added':''}" onclick="addToCart(${s.id})">${inCart?'✓ Added to Cart':'+ Add to Cart'}</button>
+    </div>
+  </div>`;
+}
+ 
+function filterServices(cat,btn){
+  currentFilter=cat;
+  document.querySelectorAll('.filter-tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  renderServices();
+}
+ 
+function sortServices(val){
+  currentSort=val;
+  renderServices();
+}
+ 
+function addToCart(id){
+  const svc=SERVICES_DATA.find(s=>s.id===id);
+  if(!svc) return;
+  const exists=cart.find(c=>c.id===id);
+  if(exists){cart=cart.filter(c=>c.id!==id);}
+  else{cart.push(svc);}
+  updateCartUI();
+ renderServices();
+  showToast(cart.find(c=>c.id===id)?'Added to cart!':'Removed from cart');
+}
+ 
+function updateCartUI(){
+  document.getElementById('cart-count').textContent=cart.length;
+  const total=cart.reduce((s,c)=>s+c.price,0);
+  document.getElementById('cart-total-display').textContent='₹'+total.toLocaleString('en-IN');
+  const cartItems=document.getElementById('cart-items');
+  const cartFooter=document.getElementById('cart-footer');
+  if(cart.length===0){
+    cartItems.innerHTML='<div class="cart-empty">Your cart is empty.<br>Browse services and add packages.</div>';
+    cartFooter.style.display='none';
+  } else {
+    cartItems.innerHTML=cart.map(c=>`<div class="cart-item"><div class="cart-item-name">${c.name}</div><div style="color:var(--muted);font-size:.75rem;margin:.2rem 0">${c.cat}</div><div class="cart-item-price">₹${c.price.toLocaleString('en-IN')}</div><button class="remove-item" onclick="addToCart(${c.id})">Remove ✕</button></div>`).join('');
+    cartFooter.style.display='block';
+  }
+}
+ 
+function openCart(){document.getElementById('cart-drawer').classList.add('open');document.getElementById('overlay').classList.add('show');}
+function closeCart(){document.getElementById('cart-drawer').classList.remove('open');document.getElementById('overlay').classList.remove('show');}
+function clearCart(){}cart=[];updateCartUI();//renderServices();}
+function proceedBooking(){closeCart();window.location.href='index.html#contact';}
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000);}
+function toggleMenu(){document.getElementById('nav-links').classList.toggle('open');}
+ 
+// Compare table toggle
+function toggleTable(){
+  const wrap=document.getElementById('compare-table-wrap');
+  const icon=document.getElementById('toggle-icon');
+  const btn=document.querySelector('.compare-toggle');
+  const open=wrap.style.display==='none';
+  wrap.style.display=open?'block':'none';
+  icon.textContent=open?'▼':'▶';
+  btn.querySelector('span+span')&&(btn.childNodes[2].textContent=open?' Hide Comparison Table':' Show Comparison Table');
+  // Rebuild button text
+  btn.innerHTML=`<span id="toggle-icon">${open?'▼':'▶'}</span> ${open?'Hide':'Show'} Comparison Table`;
+}
+ 
+// FAQ
+function renderFAQ(){
+  const list=document.getElementById('faq-list');
+  list.innerHTML=FAQS.map((f,i)=>`
+    <div class="faq-item fade-up">
+      <button class="faq-q" onclick="toggleFAQ(${i})" id="faq-q-${i}">
+        ${f.q}
+        <span class="faq-arrow" id="faq-arrow-${i}">+</span>
+      </button>
+      <div class="faq-a" id="faq-a-${i}">${f.a}</div>
+    </div>`).join('');
+  observeFadeUps();
+}
+function toggleFAQ(i){
+  const a=document.getElementById('faq-a-'+i);
+  const q=document.getElementById('faq-q-'+i);
+  const arrow=document.getElementById('faq-arrow-'+i);
+  const open=a.classList.toggle('open');
+  q.classList.toggle('open',open);
+  arrow.textContent=open?'×':'+';
+}
+ 
+// Intersection observer for animations
+function observeFadeUps(){
+  const obs=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible')}});
+  },{threshold:.08});
+  document.querySelectorAll('.fade-up:not(.visible)').forEach(el=>obs.observe(el));
+}
+ 
+// Init
+renderServices();
+renderFAQ();
+updateCartUI();
+observeFadeUps();
+ 
+document.querySelectorAll('nav a').forEach(a=>{a.addEventListener('click',()=>document.getElementById('nav-links').classList.remove('open'));});
+const cursor = document.querySelector(".custom-cursor");
+
+document.addEventListener("mousemove", (e) => {
+  cursor.style.left = e.clientX + "px";
+  cursor.style.top = e.clientY + "px";
+});
+
+document.addEventListener("mousedown", () => {
+  cursor.classList.add("click");
+});
+
+document.addEventListener("mouseup", () => {
+  cursor.classList.remove("click");
+});
+
+const hoverElements = document.querySelectorAll(
+  "a, button, .btn, input, textarea"
+);
+
+hoverElements.forEach((el) => {
+  el.addEventListener("mouseenter", () => {
+    cursor.classList.add("hover");
+  });
+
+  el.addEventListener("mouseleave", () => {
+    cursor.classList.remove("hover");
+  });
+});
+</script>
+</body>
+</html>

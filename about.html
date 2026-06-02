@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us — Pixo Production</title>
+<link rel="icon" type="image/png" href="logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#050508;--bg2:#0d0d14;--bg3:#12121c;--bg4:#1a1a28;
+  --gold1:#ffe566;--gold2:#d4920a;--gold3:#ff9e2c;
+  --accent:linear-gradient(135deg,#ffe566 0%,#ff9e2c 50%,#d4920a 100%);
+  --accent-solid:#d4920a;--text:#ffffff;--muted:#8888aa;
+  --border:rgba(255,255,255,0.07);
+  --glow:rgba(212,146,10,0.35);
+  --purple:#6c3bff;--cyan:#00d4ff;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;overflow-x:hidden;}
+
+ 
+/* ── PARTICLES ── */
+#particles{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.particle{position:absolute;width:2px;height:2px;background:var(--gold1);border-radius:50%;animation:floatP linear infinite;opacity:0}
+@keyframes floatP{0%{transform:translateY(100vh) translateX(0) scale(0);opacity:0}10%{opacity:.6}90%{opacity:.2}100%{transform:translateY(-10vh) translateX(var(--dx)) scale(1.5);opacity:0}}
+ 
+/* ── NAV ── */
+nav{
+  position:fixed;top:20px;left:50%;transform:translateX(-50%);
+  width:88%;max-width:1400px;height:74px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 2.5rem;
+  background:rgba(8,8,12,0.72);
+  backdrop-filter:blur(22px);
+  border:1px solid rgba(255,229,102,0.12);
+  border-radius:24px;z-index:1000;
+  box-shadow:0 0 0 1px rgba(255,255,255,0.02) inset,0 0 40px rgba(212,146,10,0.12),0 10px 40px rgba(0,0,0,0.45);
+  transition:all .35s ease;
+}
+nav.scrolled{background:rgba(5,5,8,0.92);box-shadow:0 0 0 1px rgba(255,229,102,0.08) inset,0 0 55px rgba(212,146,10,0.18),0 10px 50px rgba(0,0,0,0.55)}
+nav::before{content:'';position:absolute;inset:0;border-radius:24px;padding:1px;background:linear-gradient(90deg,transparent,rgba(255,229,102,0.25),rgba(255,158,44,0.35),rgba(255,229,102,0.25),transparent);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:4px;text-decoration:none;background:linear-gradient(135deg,#ffe566 0%,#ffbf3c 45%,#ff9e2c 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 15px rgba(255,196,0,0.35))}
+.logo span{color:#fff;-webkit-text-fill-color:#fff;opacity:.92}
+.nav-links{display:flex;align-items:center;gap:2.2rem;list-style:none}
+.nav-links a{color:rgba(255,255,255,0.72);text-decoration:none;font-size:.78rem;font-weight:500;letter-spacing:2px;text-transform:uppercase;transition:all .3s;position:relative}
+.nav-links a:hover{color:#fff}
+.nav-links a::after{content:'';position:absolute;left:0;bottom:-8px;width:0;height:2px;border-radius:10px;background:linear-gradient(90deg,#ffe566,#ff9e2c);box-shadow:0 0 12px rgba(255,196,0,0.5);transition:width .3s}
+.nav-links a:hover::after{width:100%}
+.hamburger{display:none;flex-direction:column;gap:5px;padding:4px;}
+.hamburger span{width:22px;height:2px;background:var(--text);transition:.3s}
+@media(max-width:768px){
+  nav{width:94%;padding:0 1rem;height:60px}
+  .logo{font-size:1.5rem;}
+  .nav-links{display:none;position:absolute;top:82px;left:0;right:0;background:rgba(10,10,15,0.97);border:1px solid rgba(255,229,102,0.08);border-radius:20px;padding:1.3rem;flex-direction:column;backdrop-filter:blur(20px)}
+  .nav-links.open{display:flex}
+  .hamburger{display:flex}
+}
+ 
+/* ── PAGE HERO ── */
+#about-hero{min-height:70vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:8rem 2rem 5rem;position:relative;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background:url('https://res.cloudinary.com/dlgmvf6k3/image/upload/v1779348679/WhatsApp_Image_2026-05-20_at_7.42.14_PM_xxhfjo.jpg') center/cover no-repeat;animation:heroZoom 20s ease-in-out infinite alternate}
+@keyframes heroZoom{from{transform:scale(1)}to{transform:scale(1.06)}}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,5,8,0.55) 0%,rgba(5,5,8,0.75) 60%,rgba(5,5,8,1) 100%)}
+.hero-mesh{position:absolute;inset:0;background:radial-gradient(ellipse 80% 50% at 20% 50%,rgba(108,59,255,0.12) 0%,transparent 60%),radial-gradient(ellipse 60% 40% at 80% 30%,rgba(212,146,10,0.1) 0%,transparent 60%)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);background-size:80px 80px;animation:gridShift 30s linear infinite}
+@keyframes gridShift{from{background-position:0 0}to{background-position:80px 80px}}
+.scanlines{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px);pointer-events:none}
+.hero-content{position:relative;z-index:2}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(212,146,10,0.4);color:var(--gold1);font-size:0.68rem;letter-spacing:4px;padding:8px 20px;text-transform:uppercase;margin-bottom:2rem;background:rgba(212,146,10,0.05);backdrop-filter:blur(10px);animation:badgePulse 3s ease-in-out infinite}
+@keyframes badgePulse{0%,100%{box-shadow:0 0 0 0 rgba(212,146,10,0)}50%{box-shadow:0 0 20px rgba(212,146,10,0.3)}}
+.badge-dot{width:6px;height:6px;background:var(--gold1);border-radius:50%;animation:blink 1.5s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.page-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,12vw,9rem);line-height:.9;letter-spacing:4px;margin-bottom:1.5rem}
+.page-title .line1{color:#fff;display:block}
+.page-title .line2{background:var(--accent);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 30px rgba(212,146,10,0.5));display:block}
+.page-sub{color:var(--muted);font-size:.9rem;letter-spacing:3px;text-transform:uppercase}
+ 
+/* ── COMMON ── */
+section{padding:7rem 2rem;position:relative}
+.section-label{color:var(--gold2);font-size:0.68rem;letter-spacing:5px;text-transform:uppercase;margin-bottom:.75rem;display:flex;align-items:center;gap:8px}
+.section-label::before{content:'';width:24px;height:1px;background:var(--gold2)}
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.8rem,6vw,5rem);letter-spacing:2px;margin-bottom:1rem;line-height:.95}
+.section-title .accent{background:var(--accent);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.section-sub{color:var(--muted);font-size:.95rem;line-height:1.8;max-width:560px}
+.divider{width:50px;height:2px;background:var(--accent);margin:1.5rem 0;position:relative}
+.divider::after{content:'';position:absolute;left:0;top:-2px;width:10px;height:6px;background:var(--gold1)}
+.fade-up{opacity:0;transform:translateY(35px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+.fade-up:nth-child(2){transition-delay:.1s}
+.fade-up:nth-child(3){transition-delay:.2s}
+.fade-up:nth-child(4){transition-delay:.3s}
+ 
+/* ── STORY SECTION ── */
+#story{
+  position:relative;overflow:hidden;
+  background:radial-gradient(circle at top left,rgba(22,19,2,0.08),transparent 35%),
+  radial-gradient(circle at bottom right,rgba(255,140,0,0.08),transparent 35%),#07070b;
+}
+#story::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 80% 50%,rgba(212,146,10,0.04),transparent)}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1300px;margin:auto;perspective:2000px;}
+.story-grid .fade-up:first-child{position:relative;padding:clamp(20px,5vw,50px);border-radius:35px;background:linear-gradient(145deg,rgba(18,18,28,0.92),rgba(8,8,14,0.96));border:1px solid rgba(255,255,255,0.08);backdrop-filter:blur(20px);overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.5),inset 0 0 40px rgba(255,255,255,0.03);transform-style:preserve-3d;transition:.6s;}
+.story-grid .fade-up:first-child::before{content:'';position:absolute;inset:-2px;border-radius:35px;background:linear-gradient(130deg,transparent,rgba(0,55,255,0.632),transparent);background-size:300% 300%;animation:goldMove 6s linear infinite;opacity:.7;z-index:-1;}
+.story-grid .fade-up:first-child::after{content:'';position:absolute;inset:-30px;background:radial-gradient(circle,rgba(255,215,0,0.18),transparent 70%);filter:blur(45px);z-index:-2;}
+@keyframes goldMove{0%{background-position:0% 50%;}100%{background-position:300% 50%;}}
+.story-grid .fade-up:first-child:hover{transform:rotateY(-6deg) rotateX(3deg) translateY(-10px);}
+.story-image-wrapper{position:relative;transform-style:preserve-3d;animation:floatImage 6s ease-in-out infinite;}
+@keyframes floatImage{0%{transform:translateY(0px);}50%{transform:translateY(-16px);}100%{transform:translateY(0px);}}
+.story-image{position:relative;border-radius:35px;overflow:hidden;transform-style:preserve-3d;transition:.6s;box-shadow:0 30px 80px rgba(0,0,0,0.6);}
+.story-image:hover{transform:rotateY(6deg) rotateX(4deg) scale(1.03);}
+.story-image img{width:100%;height:clamp(260px,50vw,520px);object-fit:cover;transition:1s;}
+.story-image:hover img{transform:scale(1.08);}
+.story-image::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,215,0,0.22),transparent 45%);z-index:2;}
+.story-image::after{content:'';position:absolute;top:-120%;left:-40%;width:80px;height:300%;background:rgba(255,255,255,0.18);transform:rotate(25deg);animation:shine 5s linear infinite;z-index:3;}
+@keyframes shine{0%{left:-40%;}100%{left:140%;}}
+.year-tag{position:absolute;bottom:25px;left:25px;padding:18px 24px;border-radius:18px;background:rgba(10,10,14,0.75);backdrop-filter:blur(20px);border:1px solid rgba(255,215,0,0.3);box-shadow:0 0 30px rgba(255,215,0,0.25);z-index:5;}
+.year-tag .yr{font-family:'Bebas Neue',sans-serif;font-size:2rem;background:var(--accent);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.year-tag .yr-label{color:var(--muted);font-size:.65rem;letter-spacing:2px;text-transform:uppercase}
+.corner-accent{position:absolute;width:60px;height:60px;z-index:2}
+.corner-tl{top:-8px;left:-8px;border-top:3px solid var(--gold1);border-left:3px solid var(--gold1);border-radius:4px 0 0 0}
+.corner-br{bottom:-8px;right:-8px;border-bottom:3px solid var(--gold1);border-right:3px solid var(--gold1);border-radius:0 0 4px 0}
+@media(max-width:900px){
+  .story-grid{grid-template-columns:1fr;gap:50px;}
+  .story-grid .fade-up:first-child{padding:35px;}
+  .story-image img{height:420px;}
+}
+ 
+/* ── STATS ── */
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-top:3rem}
+@media(max-width:360px){
+  .about-stats{grid-template-columns:1fr;}  /* stack on tiny phones */
+}
+.stat-card{background:var(--bg3);padding:2rem 1.5rem;text-align:center;position:relative;overflow:hidden;transition:transform .4s,background .3s;}
+.stat-card::before{content:'';position:absolute;inset:0;background:var(--accent);opacity:0;transition:opacity .3s}
+.stat-card:hover::before{opacity:.04}
+.stat-card:hover{transform:scale(1.03);z-index:1;background:var(--bg4)}
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:3.5rem;background:var(--accent);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;filter:drop-shadow(0 0 15px rgba(212,146,10,0.3))}
+.stat-label{color:var(--muted);font-size:.72rem;letter-spacing:2.5px;text-transform:uppercase;margin-top:.4rem}
+ 
+/* ── CTA ── */
+#cta{background:var(--bg2);text-align:center}
+#cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(212,146,10,0.06),transparent)}
+.cta-inner{max-width:700px;margin:0 auto;position:relative;z-index:2}
+.cta-inner .section-sub{margin:0 auto 2.5rem;text-align:center}
+.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+@media(max-width:480px){
+  .cta-btns{flex-direction:column;align-items:center;}
+  .btn-primary, .btn-outline{width:100%;max-width:300px;text-align:center;}
+}
+.btn-primary{background:var(--accent);color:#000;border:none;padding:15px 36px;font-family:'Outfit',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:2px;text-transform:uppercase;text-decoration:none;display:inline-block;border-radius:4px;box-shadow:0 0 30px rgba(212,146,10,0.3);transition:all .3s;position:relative;overflow:hidden}
+.btn-primary::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.2),transparent);transform:translateX(-100%);transition:transform .4s}
+.btn-primary:hover::before{transform:translateX(100%)}
+.btn-primary:hover{box-shadow:0 0 50px rgba(212,146,10,0.6);transform:translateY(-2px)}
+.btn-outline{background:transparent;color:var(--text);border:2px solid rgba(255,255,255,0.2);padding:15px 36px;font-family:'Outfit',sans-serif;font-weight:500;font-size:.82rem;letter-spacing:2px;text-transform:uppercase;text-decoration:none;display:inline-block;transition:all .3s;border-radius:4px;backdrop-filter:blur(10px)}
+.btn-outline:hover{border-color:var(--gold1);color:var(--gold1);background:rgba(212,146,10,0.05);transform:translateY(-2px)}
+ 
+/* ── FOOTER ── */
+footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 2rem;text-align:center;position:relative;overflow:hidden}
+footer::before{content:'';position:absolute;top:0;left:20%;right:20%;height:1px;background:linear-gradient(to right,transparent,var(--gold2),transparent)}
+.footer-logo{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:5px;background:var(--accent);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.6rem;filter:drop-shadow(0 0 15px rgba(212,146,10,0.2))}
+footer p{color:var(--muted);font-size:.78rem;letter-spacing:.5px}
+footer a{color:var(--gold2);text-decoration:none;transition:color .2s}
+footer a:hover{color:var(--gold1)}
+ 
+/* ── ORBS ── */
+.orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;animation:orbFloat ease-in-out infinite alternate}
+.orb1{width:500px;height:500px;background:radial-gradient(circle,rgba(108,59,255,0.15),transparent 70%);top:-200px;right:-100px;animation-duration:12s}
+.orb2{width:400px;height:400px;background:radial-gradient(circle,rgba(212,146,10,0.12),transparent 70%);bottom:-100px;left:-100px;animation-duration:15s}
+@keyframes orbFloat{from{transform:translate(0,0) scale(1)}to{transform:translate(30px,-30px) scale(1.1)}}
+.custom-cursor {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  border: 2px solid #fdd803;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 99999;
+
+  background: rgba(194, 167, 19, 0.15);
+
+  box-shadow:
+    0 0 10px #9e8913,
+    0 0 20px #8e7a0d,
+    0 0 35px rgba(144, 124, 11, 0.8);
+
+  transition:
+    width 0.2s ease,
+    height 0.2s ease,
+    background 0.2s ease;
+}
+
+/* Click Effect */
+/* Default Cursor Hide */
+
+</style>
+</head>
+<body>
+   
+ 
+<div id="particles"></div>
+ 
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="logo">PIXO<span>PRODUCTION</span></a>
+  <div class="hamburger" onclick="toggleMenu()" id="hamburger"><span></span><span></span><span></span></div>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+ 
+<!-- PAGE HERO -->
+<section id="about-hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-mesh"></div>
+  <div class="hero-grid"></div>
+  <div class="scanlines"></div>
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="hero-content fade-up">
+    <div class="hero-badge"><span class="badge-dot"></span> WHO WE ARE <span class="badge-dot"></span></div>
+    <h1 class="page-title">
+      <span class="line1">ABOUT</span>
+      <span class="line2">PIXO</span>
+    </h1>
+    <p class="page-sub">Story · Craft · Vision · Excellence</p>
+  </div>
+</section>
+ 
+<!-- STORY SECTION -->
+<section id="story">
+  <div class="story-grid">
+    <div class="fade-up">
+      <div class="section-label">Our Story</div>
+      <h2 class="section-title">STORY<br>THROUGH<br><span class="accent">VISUALS</span></h2>
+      <div class="divider"></div>
+      <p class="section-sub" style="margin-bottom:1.5rem">Pixo Production is Trichy's premier media production company — delivering rapid, high-quality cinematic content for live concerts, film audio launches, corporate events, weddings, and cultural shows.</p>
+      <p class="section-sub" style="margin-bottom:1.5rem">We combine technical mastery with storytelling finesse to make every frame unforgettable. Born from a passion for visual arts and a deep love of live energy, we've built our reputation on one simple promise: show up, capture everything, and deliver brilliance.</p>
+      <p class="section-sub">From the first beat drop to the final bow, we're there — with cinema-grade cameras, agile FPV drones, and a creative eye that sees the extraordinary in every moment.</p>
+    </div>
+    <div class="fade-up story-image-wrapper">
+      <div class="corner-accent corner-tl"></div>
+      <div class="corner-accent corner-br"></div>
+      <div class="story-image">
+        <img src="https://res.cloudinary.com/dlgmvf6k3/image/upload/v1779349150/WhatsApp_Image_2026-05-20_at_7.35.31_PM_ymekdx.jpg" alt="Pixo Production in action">
+      </div>
+      <div class="year-tag">
+        <div class="yr">2023</div>
+        <div class="yr-label">Founded in Trichy</div>
+      </div>
+    </div>
+  </div>
+  <!-- STATS -->
+  <div style="max-width:1100px;margin:4rem auto 0">
+    <div class="about-stats fade-up">
+      <div class="stat-card"><div class="stat-num">50+</div><div class="stat-label">Events Covered</div></div>
+      <div class="stat-card"><div class="stat-num">6</div><div class="stat-label">Service Types</div></div>
+      <div class="stat-card"><div class="stat-num">1HR</div><div class="stat-label">Highlight Reel</div></div>
+      <div class="stat-card"><div class="stat-num">4K</div><div class="stat-label">Cinematic Quality</div></div>
+    </div>
+  </div>
+</section>
+ 
+<!-- CTA -->
+<section id="cta">
+  <div class="cta-inner fade-up">
+    <div class="section-label" style="justify-content:center">Work With Us</div>
+    <h2 class="section-title">LET'S CREATE<br><span class="accent">TOGETHER</span></h2>
+    <div class="divider" style="margin:1.5rem auto"></div>
+    <p class="section-sub">Your event deserves to be remembered. Reach out and let's talk about turning your vision into something unforgettable.</p>
+    <div class="cta-btns">
+      <a href="contact.html" class="btn-primary">Book Now →</a>
+      <a href="index.html#projects" class="btn-outline">View Our Work</a>
+    </div>
+  </div>
+</section>
+ 
+<footer>
+  <div class="footer-logo">PIXO PRODUCTION</div>
+  <p>© 2025 Pixo Production, Trichy. All rights reserved.</p>
+  <p style="margin-top:.35rem"><a href="https://www.instagram.com/pixoproductionn/" target="_blank">@pixoproductionn</a></p>
+</footer>
+ 
+<script>
+/* PARTICLES */
+const pc = document.getElementById('particles');
+for (let i = 0; i < 30; i++) {
+  const p = document.createElement('div');
+  p.className = 'particle';
+  const delay = Math.random() * 15;
+  const dur   = 8 + Math.random() * 14;
+  const dx    = (Math.random() - 0.5) * 200;
+  p.style.cssText = `left:${Math.random()*100}%;animation-duration:${dur}s;animation-delay:${delay}s;--dx:${dx}px;opacity:0`;
+  pc.appendChild(p);
+}
+ 
+/* NAV SCROLL */
+window.addEventListener('scroll', function() {
+  document.getElementById('navbar').classList.toggle('scrolled', scrollY > 50);
+});
+ 
+/* HAMBURGER */
+function toggleMenu() {
+  document.getElementById('nav-links').classList.toggle('open');
+}
+document.querySelectorAll('nav a').forEach(function(a) {
+  a.addEventListener('click', function() {
+    document.getElementById('nav-links').classList.remove('open');
+  });
+});
+ 
+/* FADE UP OBSERVER */
+const obs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.fade-up').forEach(function(el) { obs.observe(el); });
+const ring = document.querySelector(".cursor-ring");
+
+let mouseX = 0;
+let mouseY = 0;
+
+let ringX = 0;
+let ringY = 0;
+
+document.addEventListener("mousemove", (e) => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+});
+
+function animate() {
+  ringX += (mouseX - ringX) * 0.15;
+  ringY += (mouseY - ringY) * 0.15;
+
+  ring.style.left = ringX + "px";
+  ring.style.top = ringY + "px";
+
+  requestAnimationFrame(animate);
+}
+animate();
+
+document.querySelectorAll("a, button, .btn").forEach(el => {
+  el.addEventListener("mouseenter", () => {
+    ring.classList.add("hover");
+  });
+
+  el.addEventListener("mouseleave", () => {
+    ring.classList.remove("hover");
+  });
+});
+
+</script>
+</body>
+</html>
