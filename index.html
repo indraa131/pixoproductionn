@@ -424,8 +424,16 @@ section{padding:5rem 1.25rem;position:relative}
 .contact-card>p{color:#d0d0dc;font-size:clamp(15px,3vw,20px);margin-bottom:40px;line-height:1.7}
  
 /* /* .contact-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-bottom:40px} */
- .contact-grid{display:flex;flex-direction:row;flex-wrap:wrap;gap:16px;margin-bottom:40px}
+ /* .contact-grid{display:flex;flex-direction:row;flex-wrap:wrap;gap:16px;margin-bottom:40px}
 .contact-grid .contact-item{flex:1;min-width:180px}
+@media(min-width:640px){.contact-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:480px){
+  .contact-card{padding:2rem 1rem;}
+  .contact-card h2{font-size:clamp(28px,10vw,60px);}
+} */
+  /* <!-- .contact-grid{display:flex;flex-direction:column;flex-wrap:wrap;gap:16px;margin-bottom:40px} -->
+<!-- .contact-grid .contact-item{flex:1;min-width:180px} -->
+.contact-grid{display:flex;flex-direction:c;gap:16px;margin-bottom:40px}
 @media(min-width:640px){.contact-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:480px){
   .contact-card{padding:2rem 1rem;}
@@ -439,6 +447,15 @@ section{padding:5rem 1.25rem;position:relative}
   .contact-card{padding:2rem 1rem;}
   .contact-card h2{font-size:clamp(28px,10vw,60px);}
 }
+<!-- .contact-grid{display:flex;flex-direction:column;gap:24px;margin-bottom:40px}
+.contact-item{padding:20px 16px;border-radius:16px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);transition:.4s}
+.contact-item:hover{transform:translateY(-6px);background:rgba(255,180,0,0.08);border-color:rgba(255,180,0,0.3)}
+.contact-item .icon{font-size:32px;margin-bottom:12px}
+.contact-item span{color:#ffb700;font-size:clamp(14px,3vw,18px);font-weight:500}
+@media(max-width:480px){
+  .contact-card{padding:2rem 1rem;}
+  .contact-card h2{font-size:clamp(28px,10vw,60px);}
+} -->
 .contact-item{padding:20px 16px;border-radius:16px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);transition:.4s}
 .contact-item:hover{transform:translateY(-6px);background:rgba(255,180,0,0.08);border-color:rgba(255,180,0,0.3)}
 .contact-item .icon{font-size:32px;margin-bottom:12px}
