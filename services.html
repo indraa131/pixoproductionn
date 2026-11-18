@@ -5,6 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Services — Pixo Production</title>
 <link rel="icon" type="image/png" href="logo.png">
+<!-- Google Analytics 4 — keep this same Measurement ID across all Pixo pages -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K7B123VWNY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){window.dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-K7B123VWNY');
+</script>
+
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -485,6 +494,18 @@ body { cursor: none; }
 </footer>
  
 <script>
+
+// GA4 custom event helper
+function trackGAEvent(eventName, parameters = {}) {
+  if (typeof window.gtag === "function") {
+    window.gtag("event", eventName, {
+      page_path: window.location.pathname,
+      ...parameters,
+      transport_type: "beacon"
+    });
+  }
+}
+
 const SERVICES_DATA=[
   {
     id: 1,
@@ -804,6 +825,7 @@ function serviceCardHTML(s){
 }
  
 function filterServices(cat,btn){
+  trackGAEvent('filter_services', { service_category: cat });
   currentFilter=cat;
   document.querySelectorAll('.filter-tab').forEach(t=>t.classList.remove('active'));
   btn.classList.add('active');
@@ -811,12 +833,14 @@ function filterServices(cat,btn){
 }
  
 function sortServices(val){
+  trackGAEvent('sort_services', { sort_option: val });
   currentSort=val;
   renderServices();
 }
  
 function addToCart(id){
   const svc=SERVICES_DATA.find(s=>s.id===id);
+  if (svc) trackGAEvent(cart.some(c=>c.id===id) ? 'remove_service_from_cart' : 'add_service_to_cart', { service_name: svc.name, service_category: svc.cat, service_price: svc.price });
   if(!svc) return;
   const exists=cart.find(c=>c.id===id);
   if(exists){cart=cart.filter(c=>c.id!==id);}
@@ -841,15 +865,16 @@ function updateCartUI(){
   }
 }
  
-function openCart(){document.getElementById('cart-drawer').classList.add('open');document.getElementById('overlay').classList.add('show');}
-function closeCart(){document.getElementById('cart-drawer').classList.remove('open');document.getElementById('overlay').classList.remove('show');}
-function clearCart(){}cart=[];updateCartUI();//renderServices();}
-function proceedBooking(){closeCart();window.location.href='index.html#contact';}
+function openCart(){trackGAEvent('open_service_cart', { cart_item_count: cart.length });document.getElementById('cart-drawer').classList.add('open');document.getElementById('overlay').classList.add('show');}
+function closeCart(){trackGAEvent('close_service_cart');document.getElementById('cart-drawer').classList.remove('open');document.getElementById('overlay').classList.remove('show');}
+function clearCart(){trackGAEvent('clear_service_cart', { previous_cart_item_count: cart.length });cart=[];updateCartUI();renderServices();}}
+function proceedBooking(){trackGAEvent('proceed_to_booking', { cart_item_count: cart.length, cart_value: cart.reduce((sum,item)=>sum+item.price,0) });closeCart();window.location.href='index.html#contact';}
 function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000);}
 function toggleMenu(){document.getElementById('nav-links').classList.toggle('open');}
  
 // Compare table toggle
 function toggleTable(){
+  trackGAEvent('toggle_comparison_table', { action: document.getElementById('compare-table-wrap').style.display === 'none' ? 'show' : 'hide' });
   const wrap=document.getElementById('compare-table-wrap');
   const icon=document.getElementById('toggle-icon');
   const btn=document.querySelector('.compare-toggle');
@@ -875,6 +900,7 @@ function renderFAQ(){
   observeFadeUps();
 }
 function toggleFAQ(i){
+  trackGAEvent('toggle_faq', { faq_question: FAQS[i] ? FAQS[i].q : 'Unknown', action: document.getElementById('faq-a-'+i).classList.contains('open') ? 'close' : 'open' });
   const a=document.getElementById('faq-a-'+i);
   const q=document.getElementById('faq-q-'+i);
   const arrow=document.getElementById('faq-arrow-'+i);
@@ -899,33 +925,43 @@ observeFadeUps();
  
 document.querySelectorAll('nav a').forEach(a=>{a.addEventListener('click',()=>document.getElementById('nav-links').classList.remove('open'));});
 const cursor = document.querySelector(".custom-cursor");
-
-document.addEventListener("mousemove", (e) => {
-  cursor.style.left = e.clientX + "px";
-  cursor.style.top = e.clientY + "px";
-});
-
-document.addEventListener("mousedown", () => {
-  cursor.classList.add("click");
-});
-
-document.addEventListener("mouseup", () => {
-  cursor.classList.remove("click");
-});
-
-const hoverElements = document.querySelectorAll(
-  "a, button, .btn, input, textarea"
-);
-
-hoverElements.forEach((el) => {
-  el.addEventListener("mouseenter", () => {
-    cursor.classList.add("hover");
+if (cursor) {
+  document.addEventListener("mousemove", (e) => {
+    cursor.style.left = e.clientX + "px";
+    cursor.style.top = e.clientY + "px";
   });
 
-  el.addEventListener("mouseleave", () => {
-    cursor.classList.remove("hover");
+  document.addEventListener("mousedown", () => cursor.classList.add("click"));
+  document.addEventListener("mouseup", () => cursor.classList.remove("click"));
+
+  document.querySelectorAll("a, button, .btn, input, textarea").forEach((el) => {
+    el.addEventListener("mouseenter", () => cursor.classList.add("hover"));
+    el.addEventListener("mouseleave", () => cursor.classList.remove("hover"));
   });
+}
+
+// Track navigation and key CTA clicks (delegated so dynamically rendered items work too).
+document.addEventListener("click", function(event) {
+  const link = event.target.closest("a");
+  if (link && link.closest("nav")) {
+    trackGAEvent("navigation_click", {
+      link_text: (link.textContent || "").trim(),
+      link_url: link.getAttribute("href") || ""
+    });
+  }
+
+  const button = event.target.closest("button");
+  if (!button) return;
+
+  if (button.classList.contains("cart-btn")) {
+    trackGAEvent("service_cart_button_click");
+  } else if (button.classList.contains("add-cart-btn")) {
+    // addToCart() already sends the service-specific event.
+  } else if (button.classList.contains("btn-primary")) {
+    // proceedBooking() already sends the booking event.
+  }
 });
+
 </script>
 </body>
 </html>
