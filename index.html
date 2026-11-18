@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+<!-- Google Analytics 4 - Pixo Production -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K7B123VWNY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  gtag('js', new Date());
+  gtag('config', 'G-K7B123VWNY');
+</script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>Pixo Production - Premier Event Media Production</title>
@@ -680,9 +691,9 @@ body { cursor: none; }
   </button>
   <ul class="nav-links" id="nav-links">
     <li><a href="index.html" onclick="closeMenu()">Home</a></li>
-    <li><a href="about.html" onclick="closeMenu()">About</a></li>
-    <li><a href="services.html" onclick="closeMenu()">Services</a></li>
-    <li><a href="contact.html" onclick="closeMenu()">Contact</a></li>
+    <li><a href="about.html" onclick="closeMenu()" data-track="click_about" data-track-name="Navigation - About">About</a></li>
+    <li><a href="services.html" onclick="closeMenu()" data-track="click_services" data-track-name="Navigation - Services">Services</a></li>
+    <li><a href="contact.html" onclick="closeMenu()" data-track="click_contact" data-track-name="Navigation - Contact">Contact</a></li>
     <li><button class="cart-btn" onclick="openCart();closeMenu()">🎬 Cart <span class="cart-count" id="cart-count">0</span></button></li>
   </ul>
 </nav>
@@ -705,7 +716,7 @@ body { cursor: none; }
     </h1>
     <p class="hero-sub">Powering The Art Of Visual Storytelling<br>Cinematic Events · Concerts · Film Launches · Weddings</p>
     <div class="hero-btns">
-      <a href="services.html" class="btn-primary">Browse Services</a>
+      <a href="services.html" class="btn-primary" data-track="click_services" data-track-name="Hero - Browse Services">Browse Services</a>
     </div>
   </div>
   <div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
@@ -959,23 +970,23 @@ body { cursor: none; }
     <h2>Get In Touch</h2>
     <p>Ready to make your event visually unforgettable?</p>
    <div class="contact-item">
-    <a href="tel:+918610346516" class="contact-item" style="text-decoration:none;display:block">
+    <a href="tel:+918610346516" class="contact-item" style="text-decoration:none;display:block" data-track="click_phone" data-track-name="Phone Enquiry">
   <div class="icon">📱</div>
   <span>+91 8610346516</span>
 </a>
     </div>
     <div class="contact-item">
-<a href="mailto:pixoproduction1@gmail.com" class="contact-item" style="text-decoration:none;display:block">
+<a href="mailto:pixoproduction1@gmail.com" class="contact-item" style="text-decoration:none;display:block" data-track="click_email" data-track-name="Email Enquiry">
   <div class="icon">✉️</div>
   <span>pixoproduction1@gmail.com</span>
 </a>
      </div>
       <div class="contact-item">
         <div class="icon">📸</div>
-        <span style="color:#ffb700"><a href="https://www.instagram.com/pixoproductionn/" target="_blank" style="color:#ffb700;text-decoration:none">pixoproduction</a></span>
+        <span style="color:#ffb700"><a href="https://www.instagram.com/pixoproductionn/" target="_blank" rel="noopener noreferrer" style="color:#ffb700;text-decoration:none" data-track="click_instagram" data-track-name="Instagram - Contact Section">pixoproduction</a></span>
       </div>
     </div>
-    <a href="contact.html" class="contact-btn">Connect With Us</a>
+    <a href="contact.html" class="contact-btn" data-track="click_contact" data-track-name="Connect With Us">Connect With Us</a>
   </div>
 </section> -->
 <section class="premium-contact">
@@ -984,20 +995,20 @@ body { cursor: none; }
     <h2>Get In Touch</h2>
     <p>Ready to make your event visually unforgettable?</p>
     <div class="contact-grid">
-      <a href="tel:+918610346516" class="contact-item" style="text-decoration:none;display:block">
+      <a href="tel:+918610346516" class="contact-item" style="text-decoration:none;display:block" data-track="click_phone" data-track-name="Phone Enquiry">
         <div class="icon">📱</div>
         <span>+91 8610346516</span>
       </a>
-      <a href="mailto:pixoproduction1@gmail.com" class="contact-item" style="text-decoration:none;display:block">
+      <a href="mailto:pixoproduction1@gmail.com" class="contact-item" style="text-decoration:none;display:block" data-track="click_email" data-track-name="Email Enquiry">
         <div class="icon">✉️</div>
         <span>pixoproduction1@gmail.com</span>
       </a>
       <div class="contact-item">
         <div class="icon">📸</div>
-        <span style="color:#ffb700"><a href="https://www.instagram.com/pixoproductionn/" target="_blank" style="color:#ffb700;text-decoration:none">pixoproduction</a></span>
+        <span style="color:#ffb700"><a href="https://www.instagram.com/pixoproductionn/" target="_blank" rel="noopener noreferrer" style="color:#ffb700;text-decoration:none" data-track="click_instagram" data-track-name="Instagram - Contact Section">pixoproduction</a></span>
       </div>
     </div>
-    <a href="contact.html" class="contact-btn">Connect With Us</a>
+    <a href="contact.html" class="contact-btn" data-track="click_contact" data-track-name="Connect With Us">Connect With Us</a>
   </div>
 </section>
  
@@ -1009,7 +1020,7 @@ body { cursor: none; }
       <h1 class="footer-logo" style="font-size:1rem;">PIXO<span>PRODUCTION</span></h1>
       <p>A cinematic production company creating premium visuals for concerts, weddings, commercials and live events.</p>
       <div class="footer-socials">
-        <a href="https://www.instagram.com/pixoproduction/" target="_blank">📸</a>
+        <a href="https://www.instagram.com/pixoproduction/" target="_blank" rel="noopener noreferrer" data-track="click_instagram" data-track-name="Instagram - Footer">📸</a>
         <a href="#">🎬</a>
         <a href="#">✦</a>
       </div>
@@ -1025,10 +1036,10 @@ body { cursor: none; }
     <div class="footer-col">
       <h3>Quick Links</h3>
       <a href="index.html">Home</a>
-      <a href="about.html">About</a>
+      <a href="about.html" data-track="click_about" data-track-name="Footer - About">About</a>
       <a href="#project">Projects</a>
-      <a href="services.html">Services</a>
-      <a href="contact.html">Contact</a>
+      <a href="services.html" data-track="click_services" data-track-name="Footer - Services">Services</a>
+      <a href="contact.html" data-track="click_contact" data-track-name="Footer - Contact">Contact</a>
     </div>
     <div class="footer-col">
       <h3>Contact</h3>
@@ -1264,6 +1275,19 @@ hoverElements.forEach((el) => {
 
   el.addEventListener("mouseleave", () => {
     cursor.classList.remove("hover");
+  });
+});
+
+
+/* ── PIXO PRODUCTION - GA4 CLICK TRACKING ── */
+document.addEventListener('click', function(event) {
+  const trackedElement = event.target.closest('[data-track]');
+  if (!trackedElement || typeof window.gtag !== 'function') return;
+
+  window.gtag('event', trackedElement.dataset.track, {
+    button_name: trackedElement.dataset.trackName || trackedElement.textContent.trim(),
+    page_path: window.location.pathname,
+    transport_type: 'beacon'
   });
 });
 </script>
