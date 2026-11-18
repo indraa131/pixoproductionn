@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- PIXO PRODUCTION - GOOGLE ANALYTICS 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K7B123VWNY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-K7B123VWNY');
+</script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About Us — Pixo Production</title>
@@ -289,8 +298,12 @@ footer a:hover{color:var(--gold1)}
     <div class="divider" style="margin:1.5rem auto"></div>
     <p class="section-sub">Your event deserves to be remembered. Reach out and let's talk about turning your vision into something unforgettable.</p>
     <div class="cta-btns">
-      <a href="contact.html" class="btn-primary">Book Now →</a>
-      <a href="index.html#projects" class="btn-outline">View Our Work</a>
+      <a href="contact.html" class="btn-primary"
+         data-track="click_book_now"
+         data-track-name="About - Book Now">Book Now →</a>
+      <a href="index.html#projects" class="btn-outline"
+         data-track="click_portfolio"
+         data-track-name="About - View Our Work">View Our Work</a>
     </div>
   </div>
 </section>
@@ -298,7 +311,9 @@ footer a:hover{color:var(--gold1)}
 <footer>
   <div class="footer-logo">PIXO PRODUCTION</div>
   <p>© 2025 Pixo Production, Trichy. All rights reserved.</p>
-  <p style="margin-top:.35rem"><a href="https://www.instagram.com/pixoproductionn/" target="_blank">@pixoproductionn</a></p>
+  <p style="margin-top:.35rem"><a href="https://www.instagram.com/pixoproductionn/" target="_blank" rel="noopener noreferrer"
+       data-track="click_instagram"
+       data-track-name="About - Instagram">@pixoproductionn</a></p>
 </footer>
  
 <script>
@@ -338,6 +353,18 @@ const obs = new IntersectionObserver(function(entries) {
 document.querySelectorAll('.fade-up').forEach(function(el) { obs.observe(el); });
 
 
+
+/* PIXO PRODUCTION - BUTTON CLICK ANALYTICS */
+document.addEventListener("click", function(event) {
+  const element = event.target.closest("[data-track]");
+  if (!element || typeof window.gtag !== "function") return;
+
+  window.gtag("event", element.dataset.track, {
+    button_name: element.dataset.trackName || "Unknown",
+    page_path: window.location.pathname,
+    transport_type: "beacon"
+  });
+});
 </script>
 </body>
 </html>
