@@ -7,6 +7,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="logo.png">
 
+  <!-- Google Analytics 4 — use the same Measurement ID on every page -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K7B123VWNY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){window.dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-K7B123VWNY');
+  </script>
+
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--bg:#0a0a0a;--bg2:#111;--bg3:#181818;--bg4:#222;--accent:#e8c84a;--accent2:#c8a830;--text:#f0f0f0;--muted:#888;--border:#2a2a2a;--red:#e84a4a;--green:#4ae88a}
@@ -220,7 +230,7 @@ footer a{color:var(--accent);text-decoration:none}
     <li><a href="services.html">Services</a></li>
     
     <li><a href="contact.html" class="active">Contact</a></li>
-    <li><a href="services.html" class="cart-btn">🎬 Book Now</a></li>
+    <li><a href="services.html" class="cart-btn" data-track="click_book_now" data-track-name="Navigation Book Now">🎬 Book Now</a></li>
   </ul>
 </nav>
  
@@ -249,17 +259,17 @@ footer a{color:var(--accent);text-decoration:none}
  
   <!-- QUICK CONTACT STRIP -->
   <div class="quick-strip fade-up">
-    <a class="quick-card" href="tel:+918610346516">
+    <a class="quick-card" href="tel:+918610346516" data-track="click_phone" data-track-name="Quick Contact Phone">
       <div class="quick-icon">📱</div>
       <div class="quick-label">Call Us</div>
       <div class="quick-value">+91 86103 46516</div>
     </a>
-    <a class="quick-card" href="mailto:pixoproduction1@gmail.com">
+    <a class="quick-card" href="mailto:pixoproduction1@gmail.com" data-track="click_email" data-track-name="Quick Contact Email">
       <div class="quick-icon">📧</div>
       <div class="quick-label">Email</div>
       <div class="quick-value">pixoproduction1@gmail.com</div>
     </a>
-    <a class="quick-card" href="https://www.instagram.com/pixoproductionn/" target="_blank">
+    <a class="quick-card" href="https://www.instagram.com/pixoproductionn/" target="_blank" rel="noopener" data-track="click_instagram" data-track-name="Quick Contact Instagram">
       <div class="quick-icon">📸</div>
       <div class="quick-label">Instagram</div>
       <div class="quick-value">@pixoproductionn</div>
@@ -316,9 +326,9 @@ footer a{color:var(--accent);text-decoration:none}
         <div class="divider"></div>
         <p class="info-text">Watch our latest event reels, behind-the-scenes content, and celebrity coverage on Instagram.</p>
         <div class="social-row">
-          <a href="https://www.instagram.com/pixoproductionn/" target="_blank" class="social-btn">📸 Instagram</a>
-          <a href="mailto:info@pixoproduction.in" class="social-btn">📧 Email Us</a>
-          <a href="tel:+918610346516" class="social-btn">📱 Call Now</a>
+          <a href="https://www.instagram.com/pixoproductionn/" target="_blank" rel="noopener" class="social-btn" data-track="click_instagram" data-track-name="Social Instagram">📸 Instagram</a>
+          <a href="mailto:info@pixoproduction.in" class="social-btn" data-track="click_email" data-track-name="Social Email">📧 Email Us</a>
+          <a href="tel:+918610346516" class="social-btn" data-track="click_phone" data-track-name="Social Call Now">📱 Call Now</a>
         </div>
       </div>
     </div>
@@ -475,7 +485,7 @@ footer a{color:var(--accent);text-decoration:none}
  
         <div class="form-nav">
           <button class="btn-back" onclick="goToPage(2)">← Back</button>
-          <button class="btn-next" onclick="submitForm()">Send Enquiry →</button>
+          <button class="btn-next" onclick="submitForm()" data-track="click_submit_enquiry" data-track-name="Send Enquiry Button">Send Enquiry →</button>
         </div>
       </div>
  
@@ -505,7 +515,7 @@ footer a{color:var(--accent);text-decoration:none}
         <div class="map-pin"></div>
         <div class="map-label">PIXO PRODUCTION</div>
         <div class="map-sub">Trichy, Tamil Nadu, India</div>
-        <a href="https://maps.google.com/?q=Trichy+Tamil+Nadu" target="_blank" class="map-open-btn">Open in Maps ↗</a>
+        <a href="https://maps.google.com/?q=Trichy+Tamil+Nadu" target="_blank" rel="noopener" class="map-open-btn" data-track="click_google_maps" data-track-name="Open Location in Google Maps">Open in Maps ↗</a>
       </div>
     </div>
   </div>
@@ -515,7 +525,7 @@ footer a{color:var(--accent);text-decoration:none}
 <footer>
   <div style="font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:4px;color:var(--accent);margin-bottom:.5rem">PIXO PRODUCTION</div>
   <p>© 2025 Pixo Production. All rights reserved.</p>
-  <p style="margin-top:.25rem"><a href="https://www.instagram.com/pixoproductionn/" target="_blank">@pixoproductionn</a></p>
+  <p style="margin-top:.25rem"><a href="https://www.instagram.com/pixoproductionn/" target="_blank" rel="noopener" data-track="click_instagram" data-track-name="Footer Instagram">@pixoproductionn</a></p>
 </footer>
  
 <script>
@@ -686,6 +696,21 @@ document.querySelectorAll("a, button, .btn").forEach(el => {
   });
 });
 
+
+// GA4 custom interaction tracking.
+// Events are sent only when the GA4 tag is available on this page.
+document.addEventListener("click", function(event) {
+  const trackedElement = event.target.closest("[data-track]");
+  if (!trackedElement || typeof window.gtag !== "function") return;
+
+  window.gtag("event", trackedElement.dataset.track, {
+    button_name: trackedElement.dataset.trackName || "Unnamed interaction",
+    page_path: window.location.pathname,
+    transport_type: "beacon"
+  });
+});
+
 </script>
 </body>
 </html>
+
