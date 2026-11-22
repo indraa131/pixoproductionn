@@ -1,370 +1,973 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- PIXO PRODUCTION - GOOGLE ANALYTICS 4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-K7B123VWNY"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-K7B123VWNY');
-</script>
+  <!-- PIXO PRODUCTION - GOOGLE ANALYTICS 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K7B123VWNY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-K7B123VWNY');
+  </script>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About Us — Pixo Production</title>
-<link rel="icon" type="image/png" href="logo.png">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --bg:#050508;--bg2:#0d0d14;--bg3:#12121c;--bg4:#1a1a28;
-  --gold1:#ffe566;--gold2:#d4920a;--gold3:#ff9e2c;
-  --accent:linear-gradient(135deg,#ffe566 0%,#ff9e2c 50%,#d4920a 100%);
-  --accent-solid:#d4920a;--text:#ffffff;--muted:#8888aa;
-  --border:rgba(255,255,255,0.07);
-  --glow:rgba(212,146,10,0.35);
-  --purple:#6c3bff;--cyan:#00d4ff;
-}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;overflow-x:hidden;}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#050508">
 
- 
-/* ── PARTICLES ── */
-#particles{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
-.particle{position:absolute;width:2px;height:2px;background:var(--gold1);border-radius:50%;animation:floatP linear infinite;opacity:0}
-@keyframes floatP{0%{transform:translateY(100vh) translateX(0) scale(0);opacity:0}10%{opacity:.6}90%{opacity:.2}100%{transform:translateY(-10vh) translateX(var(--dx)) scale(1.5);opacity:0}}
- html,
-body{
-  overflow-x:hidden;
-}
-  html,
-body{
-  margin: 0;
-  padding: 0;
-  background: #050508;
-}html,
-body{
-  overflow-x: hidden;
-}
-  html,
-body{
-  overscroll-behavior: none;
-}
-/* ── NAV ── */
-nav{
-  position:fixed;top:20px;left:50%;transform:translateX(-50%);
-  width:88%;max-width:1400px;height:74px;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 2.5rem;
-  background:rgba(8,8,12,0.72);
-  backdrop-filter:blur(22px);
-  border:1px solid rgba(255,229,102,0.12);
-  border-radius:24px;z-index:1000;
-  box-shadow:0 0 0 1px rgba(255,255,255,0.02) inset,0 0 40px rgba(212,146,10,0.12),0 10px 40px rgba(0,0,0,0.45);
-  transition:all .35s ease;
-}
-nav.scrolled{background:rgba(5,5,8,0.92);box-shadow:0 0 0 1px rgba(255,229,102,0.08) inset,0 0 55px rgba(212,146,10,0.18),0 10px 50px rgba(0,0,0,0.55)}
-nav::before{content:'';position:absolute;inset:0;border-radius:24px;padding:1px;background:linear-gradient(90deg,transparent,rgba(255,229,102,0.25),rgba(255,158,44,0.35),rgba(255,229,102,0.25),transparent);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
-.logo{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:4px;text-decoration:none;background:linear-gradient(135deg,#ffe566 0%,#ffbf3c 45%,#ff9e2c 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 15px rgba(255,196,0,0.35))}
-.logo span{color:#fff;-webkit-text-fill-color:#fff;opacity:.92}
-.nav-links{display:flex;align-items:center;gap:2.2rem;list-style:none}
-.nav-links a{color:rgba(255,255,255,0.72);text-decoration:none;font-size:.78rem;font-weight:500;letter-spacing:2px;text-transform:uppercase;transition:all .3s;position:relative}
-.nav-links a:hover{color:#fff}
-.nav-links a::after{content:'';position:absolute;left:0;bottom:-8px;width:0;height:2px;border-radius:10px;background:linear-gradient(90deg,#ffe566,#ff9e2c);box-shadow:0 0 12px rgba(255,196,0,0.5);transition:width .3s}
-.nav-links a:hover::after{width:100%}
-.hamburger{display:none;flex-direction:column;gap:5px;padding:4px;}
-.hamburger span{width:22px;height:2px;background:var(--text);transition:.3s}
+  <title>About Pixo Production | Photography & Videography in Trichy</title>
+
+  <meta name="description" content="Discover Pixo Production, a Trichy-based creative production team specialising in event photography, cinematic videography, college events, concerts, cultural shows and brand promotional reels.">
+
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="author" content="Pixo Production">
+  <meta name="keywords" content="Pixo Production Trichy, event photography Trichy, event videography Trichy, college event photography, concert videography Tamil Nadu, promotional reels Trichy, drone coverage Tamil Nadu">
+  <link rel="canonical" href="https://pixoproduction.in/about">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="About Pixo Production | Creative Production in Trichy">
+  <meta property="og:description" content="Meet the team behind Pixo Production. Photography, videography, event coverage and promotional content in Trichy.">
+  <meta property="og:url" content="https://pixoproduction.in/about">
+  <meta property="og:site_name" content="Pixo Production">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About Pixo Production | Creative Production in Trichy">
+  <meta name="twitter:description" content="Meet the Trichy-based team behind cinematic event photography, videography and promotional content across Tamil Nadu.">
+  <meta name="twitter:image" content="https://res.cloudinary.com/dlgmvf6k3/image/upload/f_auto,q_auto,w_1200/v1779348679/WhatsApp_Image_2026-05-20_at_7.42.14_PM_xxhfjo.jpg">
+  <meta property="og:image" content="https://res.cloudinary.com/dlgmvf6k3/image/upload/f_auto,q_auto,w_1200/v1779348679/WhatsApp_Image_2026-05-20_at_7.42.14_PM_xxhfjo.jpg">
+
+  <link rel="icon" type="image/png" href="logo.png">
+
+  <!-- Performance optimisation -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+
+  <link rel="preload" as="image"
+    href="https://res.cloudinary.com/dlgmvf6k3/image/upload/f_auto,q_auto,w_1200/v1779348679/WhatsApp_Image_2026-05-20_at_7.42.14_PM_xxhfjo.jpg">
+
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Pixo Production",
+    "url": "https://pixoproduction.in/about",
+    "image": "https://res.cloudinary.com/dlgmvf6k3/image/upload/f_auto,q_auto,w_1200/v1779348679/WhatsApp_Image_2026-05-20_at_7.42.14_PM_xxhfjo.jpg",
+    "description": "Trichy-based creative production team providing event photography, cinematic videography, concert coverage, college event coverage, drone visuals and promotional reels across Tamil Nadu.",
+    "telephone": "+91 8610346516",
+    "email": "pixoproduction1@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Tiruchirappalli",
+      "addressRegion": "Tamil Nadu",
+      "addressCountry": "IN"
+    },
+    "areaServed": ["Tiruchirappalli", "Tamil Nadu"],
+    "sameAs": ["https://www.instagram.com/pixoproductionn/"]
+  }
+  </script>
+
+
+  <style>
+    :root {
+      --bg: #050508;
+      --bg2: #0d0d14;
+      --bg3: #12121c;
+      --gold1: #ffe566;
+      --gold2: #d4920a;
+      --gold3: #ff9e2c;
+      --accent: linear-gradient(135deg,#ffe566 0%,#ff9e2c 50%,#d4920a 100%);
+      --text: #ffffff;
+      --muted: #aaaac0;
+      --border: rgba(255,255,255,.08);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Outfit', sans-serif;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    /* NAVIGATION */
+
+    nav {
+      position: fixed;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 88%;
+      max-width: 1400px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+      background: rgba(8,8,12,.94);
+      border: 1px solid rgba(255,229,102,.14);
+      border-radius: 22px;
+      z-index: 1000;
+      box-shadow: 0 10px 35px rgba(0,0,0,.4);
+      transition: background .25s ease;
+    }
+
+    nav.scrolled {
+      background: rgba(5,5,8,.98);
+    }
+
+    .logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 4px;
+      text-decoration: none;
+      color: var(--gold1);
+    }
+
+    .logo span {
+      color: #fff;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,.78);
+      text-decoration: none;
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: color .2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold1);
+    }
+
+    .hamburger {
+      display: none;
+      background: none;
+      border: 0;
+      padding: 8px;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 23px;
+      height: 2px;
+      margin: 5px;
+      background: #fff;
+    }
+
+    /* HERO */
+
+    #about-hero {
+      min-height: 55vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 130px 20px 75px;
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background-image: url('https://res.cloudinary.com/dlgmvf6k3/image/upload/f_auto,q_auto,w_1200/v1779348679/WhatsApp_Image_2026-05-20_at_7.42.14_PM_xxhfjo.jpg');
+      background-position: center;
+      background-size: cover;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(
+        180deg,
+        rgba(5,5,8,.55),
+        rgba(5,5,8,.78) 60%,
+        #050508
+      );
+    }
+
+    .hero-content {
+      max-width: 900px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      border: 1px solid rgba(212,146,10,.4);
+      color: var(--gold1);
+      font-size: .68rem;
+      letter-spacing: 4px;
+      padding: 9px 20px;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      background: rgba(212,146,10,.06);
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--gold1);
+      border-radius: 50%;
+    }
+
+    .page-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.5rem,12vw,9rem);
+      line-height: .9;
+      letter-spacing: 4px;
+      margin-bottom: 1.5rem;
+    }
+
+    .page-title .line1 {
+      display: block;
+      color: #fff;
+    }
+
+    .page-title .line2 {
+      display: block;
+      background: var(--accent);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .page-sub {
+      color: #ccc;
+      font-size: .9rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    /* COMMON SECTIONS */
+
+    section {
+      padding: 7rem 2rem;
+      position: relative;
+    }
+
+    .section-label {
+      color: var(--gold2);
+      font-size: .68rem;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      margin-bottom: .75rem;
+    }
+
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.8rem,6vw,5rem);
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+      line-height: .95;
+    }
+
+    .section-title .accent {
+      background: var(--accent);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .section-sub {
+      color: var(--muted);
+      font-size: .95rem;
+      line-height: 1.8;
+      max-width: 580px;
+    }
+
+    .divider {
+      width: 50px;
+      height: 2px;
+      background: var(--accent);
+      margin: 1.5rem 0;
+    }
+
+    /* STORY */
+
+    #story {
+      background:
+        radial-gradient(circle at top left,rgba(212,146,10,.06),transparent 35%),
+        #07070b;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+      max-width: 1250px;
+      margin: auto;
+    }
+
+    .story-copy {
+      padding: clamp(20px,4vw,45px);
+      border-radius: 28px;
+      background: linear-gradient(145deg,rgba(18,18,28,.95),rgba(8,8,14,.98));
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 55px rgba(0,0,0,.35);
+    }
+
+    /* Lightweight story-card animation: CSS only, no animation library */
+    .story-copy {
+      position: relative;
+      isolation: isolate;
+      transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+    }
+    .story-copy::before {
+      content: ""; position: absolute; inset: -1px; z-index: -1; border-radius: inherit;
+      padding: 1px; background: linear-gradient(135deg,rgba(255,229,102,.7),transparent 38%,rgba(255,158,44,.55));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; opacity: .65;
+    }
+    .story-copy:hover { transform: translateY(-5px); border-color: rgba(255,229,102,.28); box-shadow: 0 24px 60px rgba(0,0,0,.45),0 0 28px rgba(212,146,10,.08); }
+    .story-image-wrapper { animation: storyFloat 7s ease-in-out infinite; }
+    .story-image { position: relative; border: 1px solid rgba(255,229,102,.16); transition: transform .4s ease, box-shadow .4s ease; }
+    .story-image::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(115deg,transparent 25%,rgba(255,255,255,.13) 48%,transparent 70%); transform: translateX(-130%); transition: transform .8s ease; }
+    .story-image-wrapper:hover .story-image { transform: perspective(900px) rotateY(-2deg) translateY(-4px); box-shadow: 0 30px 75px rgba(0,0,0,.55),0 0 25px rgba(212,146,10,.12); }
+    .story-image-wrapper:hover .story-image::after { transform: translateX(130%); }
+    .story-image img { transition: transform .7s cubic-bezier(.2,.7,.2,1); }
+    .story-image-wrapper:hover .story-image img { transform: scale(1.035); }
+    @keyframes storyFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+    @media (prefers-reduced-motion: reduce) { .story-image-wrapper { animation: none; } .story-copy,.story-image,.story-image img { transition: none; } }
+
+    .story-copy p {
+      margin-bottom: 1.4rem;
+    }
+
+    .story-copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    .story-image-wrapper {
+      position: relative;
+    }
+
+    .story-image {
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 25px 65px rgba(0,0,0,.5);
+    }
+
+    .story-image img {
+      display: block;
+      width: 100%;
+      height: clamp(280px,45vw,520px);
+      object-fit: cover;
+    }
+
+    .year-tag {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      padding: 16px 22px;
+      border-radius: 15px;
+      background: rgba(10,10,14,.92);
+      border: 1px solid rgba(255,215,0,.3);
+    }
+
+    .year-tag .yr {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      background: var(--accent);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      line-height: 1;
+    }
+
+    .yr-label {
+      color: var(--muted);
+      font-size: .65rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* STATISTICS */
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 1px;
+      background: var(--border);
+      margin: 4rem auto 0;
+      max-width: 1100px;
+    }
+
+    .stat-card {
+      background: var(--bg3);
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3.5rem;
+      background: var(--accent);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      line-height: 1;
+    }
+
+    .stat-label {
+      color: var(--muted);
+      font-size: .72rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: .5rem;
+    }
+
+    /* CTA */
+
+    #cta {
+      background: var(--bg2);
+      text-align: center;
+    }
+
+    .cta-inner {
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .cta-inner .section-sub {
+      margin: 0 auto 2.5rem;
+    }
+
+    .cta-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary,
+    .btn-outline {
+      padding: 15px 36px;
+      font-family: 'Outfit',sans-serif;
+      font-weight: 700;
+      font-size: .82rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: inline-block;
+      border-radius: 5px;
+      transition: transform .2s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #080808;
+      border: none;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,.3);
+    }
+
+    .btn-primary:hover,
+    .btn-outline:hover {
+      transform: translateY(-2px);
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: 'Bebas Neue',sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 5px;
+      background: var(--accent);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: .6rem;
+    }
+
+    footer p {
+      color: var(--muted);
+      font-size: .78rem;
+      margin-top: .4rem;
+    }
+
+    footer a {
+      color: var(--gold2);
+      text-decoration: none;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--gold1);
+      outline-offset: 4px;
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:900px) {
+      .story-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+
+      .story-image img {
+        height: 420px;
+      }
+
+      .about-stats {
+        grid-template-columns: repeat(2,1fr);
+      }
+    }
+
+    @media(max-width:768px) {
+      nav {
+        width: 94%;
+        height: 60px;
+        padding: 0 1rem;
+        border-radius: 16px;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: #0b0b11;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 1.3rem;
+        flex-direction: column;
+        gap: 1.4rem;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      section {
+        padding: 4.5rem 1.2rem;
+      }
+
+      #about-hero {
+        min-height: 55vh;
+      }
+    }
+
+    @media(max-width:480px) {
+      .page-sub {
+        font-size: .7rem;
+        letter-spacing: 2px;
+      }
+
+      .story-copy {
+        padding: 1.5rem;
+      }
+
+      .story-image img {
+        height: 330px;
+      }
+
+      .about-stats {
+        grid-template-columns: repeat(2,1fr);
+        margin-top: 2.5rem;
+      }
+
+      .stat-card {
+        padding: 1.5rem .7rem;
+      }
+
+      .stat-num {
+        font-size: 2.8rem;
+      }
+
+      .stat-label {
+        font-size: .62rem;
+        letter-spacing: 1.3px;
+      }
+
+      .cta-btns {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn-primary,
+      .btn-outline {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+      }
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  
+/* FINAL RESPONSIVE + PERFORMANCE SAFETY LAYER */
+*,*::before,*::after{box-sizing:border-box}
+img,video,iframe,svg{max-width:100%}
+img{height:auto}
+button,a,input,select,textarea{-webkit-tap-highlight-color:transparent}
+button,a{touch-action:manipulation}
+:focus-visible{outline:2px solid var(--accent,#e8c84a);outline-offset:3px}
 @media(max-width:768px){
-  nav{width:94%;padding:0 1rem;height:60px}
-  .logo{font-size:1.5rem;}
-  .nav-links{display:none;position:absolute;top:82px;left:0;right:0;background:rgba(10,10,15,0.97);border:1px solid rgba(255,229,102,0.08);border-radius:20px;padding:1.3rem;flex-direction:column;backdrop-filter:blur(20px)}
-  .nav-links.open{display:flex}
-  .hamburger{display:flex}
+  body{max-width:100%;}
+  main,section,header,footer{min-width:0;}
+  img,video{max-width:100%;}
 }
- 
-/* ── PAGE HERO ── */
-#about-hero{min-height:50vh;height:auto;display:flex;align-items:center;justify-content:center;text-align:center;padding:8rem 2rem 5rem;position:relative;overflow:hidden;}
-.hero-bg{position:absolute;inset:0;background:url('https://res.cloudinary.com/dlgmvf6k3/image/upload/v1779348679/WhatsApp_Image_2026-05-20_at_7.42.14_PM_xxhfjo.jpg') center/cover no-repeat;animation:heroZoom 20s ease-in-out infinite alternate}
-@keyframes heroZoom{from{transform:scale(1)}to{transform:scale(1.06)}}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,5,8,0.55) 0%,rgba(5,5,8,0.75) 60%,rgba(5,5,8,1) 100%)}
-.hero-mesh{position:absolute;inset:0;background:radial-gradient(ellipse 80% 50% at 20% 50%,rgba(108,59,255,0.12) 0%,transparent 60%),radial-gradient(ellipse 60% 40% at 80% 30%,rgba(212,146,10,0.1) 0%,transparent 60%)}
-.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);background-size:80px 80px;animation:gridShift 30s linear infinite}
-@keyframes gridShift{from{background-position:0 0}to{background-position:80px 80px}}
-.scanlines{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px);pointer-events:none}
-.hero-content{position:relative;z-index:2}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(212,146,10,0.4);color:var(--gold1);font-size:0.68rem;letter-spacing:4px;padding:8px 20px;text-transform:uppercase;margin-bottom:2rem;background:rgba(212,146,10,0.05);backdrop-filter:blur(10px);animation:badgePulse 3s ease-in-out infinite}
-@keyframes badgePulse{0%,100%{box-shadow:0 0 0 0 rgba(212,146,10,0)}50%{box-shadow:0 0 20px rgba(212,146,10,0.3)}}
-.badge-dot{width:6px;height:6px;background:var(--gold1);border-radius:50%;animation:blink 1.5s ease-in-out infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
-.page-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,12vw,9rem);line-height:.9;letter-spacing:4px;margin-bottom:1.5rem}
-.page-title .line1{color:#fff;display:block}
-.page-title .line2{background:var(--accent);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 30px rgba(212,146,10,0.5));display:block}
-.page-sub{color:var(--muted);font-size:.9rem;letter-spacing:3px;text-transform:uppercase}
- 
-/* ── COMMON ── */
-section{padding:7rem 2rem;position:relative}
-.section-label{color:var(--gold2);font-size:0.68rem;letter-spacing:5px;text-transform:uppercase;margin-bottom:.75rem;display:flex;align-items:center;gap:8px}
-.section-label::before{content:'';width:24px;height:1px;background:var(--gold2)}
-.section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.8rem,6vw,5rem);letter-spacing:2px;margin-bottom:1rem;line-height:.95}
-.section-title .accent{background:var(--accent);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.section-sub{color:var(--muted);font-size:.95rem;line-height:1.8;max-width:560px}
-.divider{width:50px;height:2px;background:var(--accent);margin:1.5rem 0;position:relative}
-.divider::after{content:'';position:absolute;left:0;top:-2px;width:10px;height:6px;background:var(--gold1)}
-.fade-up{opacity:1;transform:none;transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
-.fade-up.visible{opacity:1;transform:translateY(0)}
-.fade-up:nth-child(2){transition-delay:.1s}
-.fade-up:nth-child(3){transition-delay:.2s}
-.fade-up:nth-child(4){transition-delay:.3s}
- 
-/* ── STORY SECTION ── */
-#story{
-  position:relative;overflow:hidden;
-  background:radial-gradient(circle at top left,rgba(22,19,2,0.08),transparent 35%),
-  radial-gradient(circle at bottom right,rgba(255,140,0,0.08),transparent 35%),#07070b;
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto!important}
+  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
-#story::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 80% 50%,rgba(212,146,10,0.04),transparent)}
-.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1300px;margin:auto;perspective:2000px;}
-.story-grid .fade-up:first-child{position:relative;padding:clamp(20px,5vw,50px);border-radius:35px;background:linear-gradient(145deg,rgba(18,18,28,0.92),rgba(8,8,14,0.96));border:1px solid rgba(255,255,255,0.08);backdrop-filter:blur(20px);overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.5),inset 0 0 40px rgba(255,255,255,0.03);transform-style:preserve-3d;transition:.6s;}
-.story-grid .fade-up:first-child::before{content:'';position:absolute;inset:-2px;border-radius:35px;background:linear-gradient(130deg,transparent,rgba(0,55,255,0.632),transparent);background-size:300% 300%;animation:goldMove 6s linear infinite;opacity:.7;z-index:-1;}
-.story-grid .fade-up:first-child::after{content:'';position:absolute;inset:-30px;background:radial-gradient(circle,rgba(255,215,0,0.18),transparent 70%);filter:blur(45px);z-index:-2;}
-@keyframes goldMove{0%{background-position:0% 50%;}100%{background-position:300% 50%;}}
-.story-grid .fade-up:first-child:hover{transform:rotateY(-6deg) rotateX(3deg) translateY(-10px);}
-.story-image-wrapper{position:relative;transform-style:preserve-3d;animation:floatImage 6s ease-in-out infinite;}
-@keyframes floatImage{0%{transform:translateY(0px);}50%{transform:translateY(-16px);}100%{transform:translateY(0px);}}
-.story-image{position:relative;border-radius:35px;overflow:hidden;transform-style:preserve-3d;transition:.6s;box-shadow:0 30px 80px rgba(0,0,0,0.6);}
-.story-image:hover{transform:rotateY(6deg) rotateX(4deg) scale(1.03);}
-.story-image img{width:100%;height:clamp(260px,50vw,520px);object-fit:cover;transition:1s;}
-.story-image:hover img{transform:scale(1.08);}
-.story-image::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,215,0,0.22),transparent 45%);z-index:2;}
-.story-image::after{content:'';position:absolute;top:-120%;left:-40%;width:80px;height:300%;background:rgba(255,255,255,0.18);transform:rotate(25deg);animation:shine 5s linear infinite;z-index:3;}
-@keyframes shine{0%{left:-40%;}100%{left:140%;}}
-.year-tag{position:absolute;bottom:25px;left:25px;padding:18px 24px;border-radius:18px;background:rgba(10,10,14,0.75);backdrop-filter:blur(20px);border:1px solid rgba(255,215,0,0.3);box-shadow:0 0 30px rgba(255,215,0,0.25);z-index:5;}
-.year-tag .yr{font-family:'Bebas Neue',sans-serif;font-size:2rem;background:var(--accent);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
-.year-tag .yr-label{color:var(--muted);font-size:.65rem;letter-spacing:2px;text-transform:uppercase}
-.corner-accent{position:absolute;width:60px;height:60px;z-index:2}
-.corner-tl{top:-8px;left:-8px;border-top:3px solid var(--gold1);border-left:3px solid var(--gold1);border-radius:4px 0 0 0}
-.corner-br{bottom:-8px;right:-8px;border-bottom:3px solid var(--gold1);border-right:3px solid var(--gold1);border-radius:0 0 4px 0}
-@media(max-width:900px){
-  .story-grid{grid-template-columns:1fr;gap:50px;}
-  .story-grid .fade-up:first-child{padding:35px;}
-  .story-image img{height:420px;}
-}
- 
-/* ── STATS ── */
-.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-top:3rem}
-@media(max-width:360px){
-  .about-stats{grid-template-columns:1fr;}  /* stack on tiny phones */
-}
-.stat-card{background:var(--bg3);padding:2rem 1.5rem;text-align:center;position:relative;overflow:hidden;transition:transform .4s,background .3s;}
-.stat-card::before{content:'';position:absolute;inset:0;background:var(--accent);opacity:0;transition:opacity .3s}
-.stat-card:hover::before{opacity:.04}
-.stat-card:hover{transform:scale(1.03);z-index:1;background:var(--bg4)}
-.stat-num{font-family:'Bebas Neue',sans-serif;font-size:3.5rem;background:var(--accent);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;filter:drop-shadow(0 0 15px rgba(212,146,10,0.3))}
-.stat-label{color:var(--muted);font-size:.72rem;letter-spacing:2.5px;text-transform:uppercase;margin-top:.4rem}
- 
-/* ── CTA ── */
-#cta{background:var(--bg2);text-align:center}
-#cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(212,146,10,0.06),transparent)}
-.cta-inner{max-width:700px;margin:0 auto;position:relative;z-index:2}
-.cta-inner .section-sub{margin:0 auto 2.5rem;text-align:center}
-.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
-@media(max-width:480px){
-  .cta-btns{flex-direction:column;align-items:center;}
-  .btn-primary, .btn-outline{width:100%;max-width:300px;text-align:center;}
-}
-.btn-primary{background:var(--accent);color:#000;border:none;padding:15px 36px;font-family:'Outfit',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:2px;text-transform:uppercase;text-decoration:none;display:inline-block;border-radius:4px;box-shadow:0 0 30px rgba(212,146,10,0.3);transition:all .3s;position:relative;overflow:hidden}
-.btn-primary::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.2),transparent);transform:translateX(-100%);transition:transform .4s}
-.btn-primary:hover::before{transform:translateX(100%)}
-.btn-primary:hover{box-shadow:0 0 50px rgba(212,146,10,0.6);transform:translateY(-2px)}
-.btn-outline{background:transparent;color:var(--text);border:2px solid rgba(255,255,255,0.2);padding:15px 36px;font-family:'Outfit',sans-serif;font-weight:500;font-size:.82rem;letter-spacing:2px;text-transform:uppercase;text-decoration:none;display:inline-block;transition:all .3s;border-radius:4px;backdrop-filter:blur(10px)}
-.btn-outline:hover{border-color:var(--gold1);color:var(--gold1);background:rgba(212,146,10,0.05);transform:translateY(-2px)}
- 
-/* ── FOOTER ── */
-footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 2rem;text-align:center;position:relative;overflow:hidden}
-footer::before{content:'';position:absolute;top:0;left:20%;right:20%;height:1px;background:linear-gradient(to right,transparent,var(--gold2),transparent)}
-.footer-logo{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:5px;background:var(--accent);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.6rem;filter:drop-shadow(0 0 15px rgba(212,146,10,0.2))}
-footer p{color:var(--muted);font-size:.78rem;letter-spacing:.5px}
-footer a{color:var(--gold2);text-decoration:none;transition:color .2s}
-footer a:hover{color:var(--gold1)}
- 
-/* ── ORBS ── */
-.orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;animation:orbFloat ease-in-out infinite alternate}
-.orb1{width:500px;height:500px;background:radial-gradient(circle,rgba(108,59,255,0.15),transparent 70%);top:-200px;right:-100px;animation-duration:12s}
-.orb2{width:400px;height:400px;background:radial-gradient(circle,rgba(212,146,10,0.12),transparent 70%);bottom:-100px;left:-100px;animation-duration:15s}
-@keyframes orbFloat{from{transform:translate(0,0) scale(1)}to{transform:translate(30px,-30px) scale(1.1)}}
-.custom-cursor {
-  position: fixed;
-  width: 10px;
-  height: 10px;
-  border: 2px solid #fdd803;
-  border-radius: 50%;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  z-index: 99999;
-
-  background: rgba(194, 167, 19, 0.15);
-
-  box-shadow:
-    0 0 10px #9e8913,
-    0 0 20px #8e7a0d,
-    0 0 35px rgba(144, 124, 11, 0.8);
-
-  transition:
-    width 0.2s ease,
-    height 0.2s ease,
-    background 0.2s ease;
-}
-
-/* Click Effect */
-/* Default Cursor Hide */
-
 </style>
+<meta name="color-scheme" content="dark">
 </head>
+
 <body>
-   
- 
-<div id="particles"></div>
- 
-<!-- NAV -->
-<nav id="navbar">
-  <a href="index.html" class="logo">PIXO<span>PRODUCTION</span></a>
-  <div class="hamburger" onclick="toggleMenu()" id="hamburger"><span></span><span></span><span></span></div>
-  <ul class="nav-links" id="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="services.html">Services</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-</nav>
- 
-<!-- PAGE HERO -->
-<section id="about-hero">
-  <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-mesh"></div>
-  <div class="hero-grid"></div>
-  <div class="scanlines"></div>
-  <div class="orb orb1"></div>
-  <div class="orb orb2"></div>
-  <div class="hero-content fade-up">
-    <div class="hero-badge"><span class="badge-dot"></span> WHO WE ARE <span class="badge-dot"></span></div>
-    <h1 class="page-title">
-      <span class="line1">ABOUT</span>
-      <span class="line2">PIXO</span>
-    </h1>
-    <p class="page-sub">Story · Craft · Vision · Excellence</p>
-  </div>
-</section>
- 
-<!-- STORY SECTION -->
-<section id="story">
-  <div class="story-grid">
-    <div class="fade-up">
-      <div class="section-label">Our Story</div>
-      <h2 class="section-title">STORY<br>THROUGH<br><span class="accent">VISUALS</span></h2>
-      <div class="divider"></div>
-      <p class="section-sub" style="margin-bottom:1.5rem">Pixo Production is Trichy's premier media production company — delivering rapid, high-quality cinematic content for live concerts, film audio launches, corporate events, weddings, and cultural shows.</p>
-      <p class="section-sub" style="margin-bottom:1.5rem">We combine technical mastery with storytelling finesse to make every frame unforgettable. Born from a passion for visual arts and a deep love of live energy, we've built our reputation on one simple promise: show up, capture everything, and deliver brilliance.</p>
-      <p class="section-sub">From the first beat drop to the final bow, we're there — with cinema-grade cameras, agile FPV drones, and a creative eye that sees the extraordinary in every moment.</p>
-    </div>
-    <div class="fade-up story-image-wrapper">
-      <div class="corner-accent corner-tl"></div>
-      <div class="corner-accent corner-br"></div>
-      <div class="story-image">
-        <img src="https://res.cloudinary.com/dlgmvf6k3/image/upload/v1779349150/WhatsApp_Image_2026-05-20_at_7.35.31_PM_ymekdx.jpg" alt="Pixo Production in action">
+
+  <!-- NAVIGATION -->
+
+  <nav id="navbar" aria-label="Main navigation">
+    <a href="index.html" class="logo">PIXO<span>PRODUCTION</span></a>
+
+    <button class="hamburger"
+      type="button"
+      id="hamburger"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+      aria-controls="nav-links">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- HERO -->
+
+    <section id="about-hero" aria-labelledby="about-title">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-overlay" aria-hidden="true"></div>
+
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          WHO WE ARE
+          <span class="badge-dot"></span>
+        </div>
+
+        <h1 class="page-title" id="about-title">
+          <span class="line1">ABOUT</span>
+          <span class="line2">PIXO</span>
+        </h1>
+
+        <p class="page-sub">
+          Story · Craft · Vision · Excellence
+        </p>
       </div>
-      <div class="year-tag">
-        <div class="yr">2023</div>
-        <div class="yr-label">Founded in Trichy</div>
+    </section>
+
+    <!-- OUR STORY -->
+
+    <section id="story">
+
+      <div class="story-grid">
+
+        <div class="story-copy">
+
+          <div class="section-label">Our Story</div>
+
+          <h2 class="section-title">
+            STORY<br>
+            THROUGH<br>
+            <span class="accent">VISUALS</span>
+          </h2>
+
+          <div class="divider"></div>
+
+          <p class="section-sub">
+            Pixo Production is a Trichy-based event production team
+            providing professional event photography and cinematic videography
+            for live concerts, college events, cultural shows, corporate events
+            and brand promotions across Tamil Nadu.
+          </p>
+
+          <p class="section-sub">
+            We combine technical skills with visual storytelling
+            to make every frame memorable. Our focus is simple:
+            show up prepared, capture important moments and
+            deliver quality content on time.
+          </p>
+
+          <p class="section-sub">
+            From concert photography and college event videography to
+            promotional reels, brand content and drone coverage, we help
+            organisations and brands tell their stories through visuals.
+          </p>
+
+        </div>
+
+        <div class="story-image-wrapper">
+
+          <div class="story-image">
+            <img
+              src="https://res.cloudinary.com/dlgmvf6k3/image/upload/f_auto,q_auto,w_1000/v1779349150/WhatsApp_Image_2026-05-20_at_7.35.31_PM_ymekdx.jpg"
+              alt="Pixo Production event photography and cinematic videography team in Trichy"
+              width="1000"
+              height="1200"
+              loading="lazy"
+              decoding="async">
+          </div>
+
+          <div class="year-tag">
+            <div class="yr">2023</div>
+            <div class="yr-label">Founded in Trichy</div>
+          </div>
+
+        </div>
+
       </div>
-    </div>
-  </div>
-  <!-- STATS -->
-  <div style="max-width:1100px;margin:4rem auto 0">
-    <div class="about-stats fade-up">
-      <div class="stat-card"><div class="stat-num">50+</div><div class="stat-label">Events Covered</div></div>
-      <div class="stat-card"><div class="stat-num">6</div><div class="stat-label">Service Types</div></div>
-      <div class="stat-card"><div class="stat-num">1HR</div><div class="stat-label">Highlight Reel</div></div>
-      <div class="stat-card"><div class="stat-num">4K</div><div class="stat-label">Cinematic Quality</div></div>
-    </div>
-  </div>
-</section>
- 
-<!-- CTA -->
-<section id="cta">
-  <div class="cta-inner fade-up">
-    <div class="section-label" style="justify-content:center">Work With Us</div>
-    <h2 class="section-title">LET'S CREATE<br><span class="accent">TOGETHER</span></h2>
-    <div class="divider" style="margin:1.5rem auto"></div>
-    <p class="section-sub">Your event deserves to be remembered. Reach out and let's talk about turning your vision into something unforgettable.</p>
-    <div class="cta-btns">
-      <a href="contact.html" class="btn-primary"
-         data-track="click_book_now"
-         data-track-name="About - Book Now">Book Now →</a>
-      <a href="index.html#projects" class="btn-outline"
-         data-track="click_portfolio"
-         data-track-name="About - View Our Work">View Our Work</a>
-    </div>
-  </div>
-</section>
- 
-<footer>
-  <div class="footer-logo">PIXO PRODUCTION</div>
-  <p>© 2025 Pixo Production, Trichy. All rights reserved.</p>
-  <p style="margin-top:.35rem"><a href="https://www.instagram.com/pixoproductionn/" target="_blank" rel="noopener noreferrer"
-       data-track="click_instagram"
-       data-track-name="About - Instagram">@pixoproductionn</a></p>
-</footer>
- 
-<script>
-/* PARTICLES */
-const pc = document.getElementById('particles');
-for (let i = 0; i < 30; i++) {
-  const p = document.createElement('div');
-  p.className = 'particle';
-  const delay = Math.random() * 15;
-  const dur   = 8 + Math.random() * 14;
-  const dx    = (Math.random() - 0.5) * 200;
-  p.style.cssText = `left:${Math.random()*100}%;animation-duration:${dur}s;animation-delay:${delay}s;--dx:${dx}px;opacity:0`;
-  pc.appendChild(p);
-}
- 
-/* NAV SCROLL */
-window.addEventListener('scroll', function() {
-  document.getElementById('navbar').classList.toggle('scrolled', scrollY > 50);
-});
- 
-/* HAMBURGER */
-function toggleMenu() {
-  document.getElementById('nav-links').classList.toggle('open');
-}
-document.querySelectorAll('nav a').forEach(function(a) {
-  a.addEventListener('click', function() {
-    document.getElementById('nav-links').classList.remove('open');
-  });
-});
- 
-/* FADE UP OBSERVER */
-const obs = new IntersectionObserver(function(entries) {
-  entries.forEach(function(e) {
-    if (e.isIntersecting) e.target.classList.add('visible');
-  });
-}, { threshold: 0.08 });
-document.querySelectorAll('.fade-up').forEach(function(el) { obs.observe(el); });
 
+      <!-- STATS -->
 
+      <div class="about-stats" aria-label="Pixo Production highlights">
 
-/* PIXO PRODUCTION - BUTTON CLICK ANALYTICS */
-document.addEventListener("click", function(event) {
-  const element = event.target.closest("[data-track]");
-  if (!element || typeof window.gtag !== "function") return;
+        <div class="stat-card">
+          <div class="stat-num">50+</div>
+          <div class="stat-label">Events Covered</div>
+        </div>
 
-  window.gtag("event", element.dataset.track, {
-    button_name: element.dataset.trackName || "Unknown",
-    page_path: window.location.pathname,
-    transport_type: "beacon"
-  });
-});
-</script>
+        <div class="stat-card">
+          <div class="stat-num">6</div>
+          <div class="stat-label">Service Types</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-num">1HR</div>
+          <div class="stat-label">Highlight Reel</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-num">4K</div>
+          <div class="stat-label">Cinematic Quality</div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- CALL TO ACTION -->
+
+    <section id="cta">
+
+      <div class="cta-inner">
+
+        <div class="section-label">Work With Us</div>
+
+        <h2 class="section-title">
+          LET'S CREATE<br>
+          <span class="accent">TOGETHER</span>
+        </h2>
+
+        <div class="divider" style="margin:1.5rem auto"></div>
+
+        <p class="section-sub">
+          Your event deserves to be remembered. Contact our team
+          to discuss photography, videography, reels and promotional
+          content for your next event or brand.
+        </p>
+
+        <div class="cta-btns">
+
+          <a href="contact.html"
+            class="btn-primary"
+            data-track="click_contact"
+            data-track-name="About - Get a Quote">
+            Get a Quote →
+          </a>
+
+          <a href="index.html#projects"
+            class="btn-outline"
+            data-track="click_portfolio"
+            data-track-name="About - View Our Work">
+            View Our Work
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="footer-logo">PIXO PRODUCTION</div>
+
+    <p>
+      © <span id="year">2026</span>
+      Pixo Production, Trichy. All rights reserved.
+    </p>
+
+    <p>
+      <a href="https://www.instagram.com/pixoproductionn/"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-track="click_instagram"
+        data-track-name="About - Instagram">
+        @pixoproductionn
+      </a>
+    </p>
+
+  </footer>
+
+  <!-- LIGHTWEIGHT JAVASCRIPT -->
+
+  <script>
+    (() => {
+
+      const navbar = document.getElementById('navbar');
+      const menuButton = document.getElementById('hamburger');
+      const menu = document.getElementById('nav-links');
+
+      // Navbar scroll effect
+      const updateNav = () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 40);
+      };
+
+      updateNav();
+
+      window.addEventListener('scroll', updateNav, {
+        passive: true
+      });
+
+      // Mobile navigation
+      menuButton.addEventListener('click', () => {
+
+        const isOpen = menu.classList.toggle('open');
+
+        menuButton.setAttribute(
+          'aria-expanded',
+          String(isOpen)
+        );
+
+        menuButton.setAttribute(
+          'aria-label',
+          isOpen ? 'Close navigation menu' : 'Open navigation menu'
+        );
+
+      });
+
+      // Close menu after navigation
+      menu.querySelectorAll('a').forEach(link => {
+
+        link.addEventListener('click', () => {
+
+          menu.classList.remove('open');
+
+          menuButton.setAttribute('aria-expanded', 'false');
+
+          menuButton.setAttribute(
+            'aria-label',
+            'Open navigation menu'
+          );
+
+        });
+
+      });
+
+      // Dynamic copyright year
+      document.getElementById('year').textContent =
+        new Date().getFullYear();
+
+      // Google Analytics click tracking
+      document.addEventListener('click', event => {
+
+        const element = event.target.closest('[data-track]');
+
+        if (!element || typeof window.gtag !== 'function') {
+          return;
+        }
+
+        window.gtag('event', element.dataset.track, {
+
+          button_name:
+            element.dataset.trackName || 'Unknown',
+
+          page_path:
+            window.location.pathname,
+
+          transport_type: 'beacon'
+
+        });
+
+      });
+
+    })();
+  </script>
+
 </body>
 </html>
